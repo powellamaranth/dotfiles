@@ -1,0 +1,23 @@
+tap "homebrew/bundle"
+tap "homebrew/cask"
+tap "homebrew/cask-fonts"
+tap "homebrew/cask-versions"
+tap "homebrew/core"
+tap "homebrew/services"
+tap "universal-ctags/universal-ctags"
+
+brew "diff-so-fancy"
+brew "fzf"
+brew "htop"
+brew "the_silver_searcher"
+brew "tmux"
+brew "vim"
+brew "zsh"
+brew "asdf"
+brew "universal-ctags/universal-ctags/universal-ctags", args: ["HEAD"]
+
+cask "alacritty"
+cask "docker"
+cask "font-fira-code"
+cask "shiftit"
+cask "iterm2"
