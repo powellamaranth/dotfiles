@@ -19,6 +19,9 @@ setopt hist_verify
 setopt inc_append_history
 setopt share_history
 
+bindkey -e
+eval "$(starship init zsh)"
+
 # Plugins
 [ ! -d ~/.zplug ] && curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
 export ZPLUG_HOME=$HOME/.zplug

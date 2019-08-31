@@ -15,6 +15,7 @@ brew "vim"
 brew "zsh"
 brew "asdf"
 brew "universal-ctags/universal-ctags/universal-ctags", args: ["HEAD"]
+brew "starship"
 
 cask "alacritty"
 cask "docker"
