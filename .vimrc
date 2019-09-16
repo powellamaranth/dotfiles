@@ -35,7 +35,6 @@ scriptencoding utf-16
     Plug 'moll/vim-bbye'
     Plug 'nestorsalceda/vim-strip-trailing-whitespaces'
     Plug 'pgdouyon/vim-evanesco'
-    Plug 'pseewald/vim-anyfold'
     Plug 'roxma/vim-paste-easy'
     Plug 'sbdchd/neoformat'
     Plug 'scrooloose/nerdtree'
@@ -62,6 +61,7 @@ scriptencoding utf-16
   set diffopt=vertical
   set encoding=utf8
   set expandtab
+  set fdm=indent
   set foldlevelstart=99
   set hlsearch
   set ignorecase
@@ -179,19 +179,4 @@ scriptencoding utf-16
     au!
     au BufWritePost .vimrc nested source % | redraw
   augroup END
-
-  augroup anyfold
-    au!
-    au Filetype * AnyFoldActivate
-  augroup END
-
-  " disable anyfold for large files
-  let g:LargeFile = 1000000 " file is large if size greater than 1MB
-  au BufReadPre,BufRead * let f=getfsize(expand("<afile>")) | if f > g:LargeFile || f == -2 | call LargeFile() | endif
-  function! LargeFile()
-      augroup anyfold
-          au! " remove AnyFoldActivate
-          au Filetype <filetype> setlocal foldmethod=indent " fall back to indent folding
-      augroup END
-  endfunction
 " }}}
