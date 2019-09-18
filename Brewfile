@@ -16,9 +16,9 @@ brew "zsh"
 brew "asdf"
 brew "universal-ctags/universal-ctags/universal-ctags", args: ["HEAD"]
 brew "starship"
-brew "authy"
 brew "colordiff"
 
+cask "authy"
 cask "alacritty"
 cask "docker"
 cask "font-fira-code"
