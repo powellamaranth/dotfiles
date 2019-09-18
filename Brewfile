@@ -17,6 +17,7 @@ brew "asdf"
 brew "universal-ctags/universal-ctags/universal-ctags", args: ["HEAD"]
 brew "starship"
 brew "authy"
+brew "colordiff"
 
 cask "alacritty"
 cask "docker"
