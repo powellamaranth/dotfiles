@@ -16,9 +16,11 @@ brew "zsh"
 brew "asdf"
 brew "universal-ctags/universal-ctags/universal-ctags", args: ["HEAD"]
 brew "starship"
+brew "authy"
 
 cask "alacritty"
 cask "docker"
 cask "font-fira-code"
 cask "shiftit"
 cask "iterm2"
+cask "pritunl"
