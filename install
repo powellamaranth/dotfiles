@@ -29,8 +29,3 @@ done
 sudo sh -c "echo $(which zsh) >> /etc/shells"
 chsh -s $(which zsh)
 zsh
-
-# asdf
-echo -e "\n. $(brew --prefix asdf)/asdf.sh" >> ~/.zshrc
-echo -e "\n. $(brew --prefix asdf)/etc/bash_completion.d/asdf.bash" >> ~/.zshrc
-
