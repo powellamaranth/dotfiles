@@ -50,7 +50,6 @@ scriptencoding utf-16
     Plug 'tpope/vim-surround'
     Plug 'tpope/vim-unimpaired'
     Plug 'vim-airline/vim-airline'
-    Plug 'w0rp/ale'
   call plug#end()
 " }}}
 
@@ -75,6 +74,7 @@ scriptencoding utf-16
   set number
   set shiftwidth=2
   set smartcase
+  set spelllang=en_us
   set splitbelow
   set splitright
   set t_Co=256
@@ -88,6 +88,9 @@ scriptencoding utf-16
   let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
   let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
   let &t_ut = ''
+  let g:tagbar_autofocus = 1
+  let g:tagbar_width = 40
+  let g:NERDTreeWinSize = 40
   let g:NERDTreeShowHidden = 1
   let g:NERDTreeWinPos = 'right'
   let g:airline#extensions#tabline#enabled = 1
@@ -179,4 +182,4 @@ scriptencoding utf-16
     au!
     au BufWritePost .vimrc nested source % | redraw
   augroup END
-" }}}
+"
