@@ -193,4 +193,4 @@ scriptencoding utf-16
     au!
     au BufWritePost .vimrc nested source % | redraw
   augroup END
-" }}}
+"
