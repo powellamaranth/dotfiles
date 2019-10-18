@@ -82,6 +82,17 @@ scriptencoding utf-16
   set termguicolors
   set ttyfast
   set ttymouse=xterm2
+
+  cnoreabbrev W! w!
+  cnoreabbrev Q! q!
+  cnoreabbrev Qall! qall!
+  cnoreabbrev Wq wq
+  cnoreabbrev Wa wa
+  cnoreabbrev wQ wq
+  cnoreabbrev WQ wq
+  cnoreabbrev W w
+  cnoreabbrev Q q
+  cnoreabbrev Qall qall
 " }}}
 
 " Plugin Config {{{
