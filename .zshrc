@@ -1,8 +1,8 @@
 # Exports
 export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
-export EDITOR=vim
-export TERM="xterm-256color"
+export EDITOR=nvim
+export TERM="screen-256color"
 export HISTCONTROL=ignoreboth:erasedups
 export PATH=$HOME/bin:$PATH
 

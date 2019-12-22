@@ -1,9 +1,12 @@
 scriptencoding utf-16
 
 " Boostrap {{{
-  let &runtimepath .= ','.expand('~/.vim')
-  if empty(glob('~/.vim/autoload/plug.vim'))
+  if empty(glob('~/.vim/autoload/plug.vim')) && !has('nvim')
     exe 'silent !curl -fLo '.expand('~/.vim/autoload/plug.vim').' --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+    autocmd VimEnter * PlugInstall --sync | exit | source $MYVIMRC
+  endif
+  if empty(glob('~/.local/share/nvim/site/autoload/plug.vim')) && has('nvim')
+    exe 'silent !curl -fLo '.expand('~/.local/share/nvim/site/autoload/plug.vim').' --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
     autocmd VimEnter * PlugInstall --sync | exit | source $MYVIMRC
   endif
 " }}}
@@ -54,6 +57,7 @@ scriptencoding utf-16
 
 " Globals {{{
   set background=dark
+  set cmdheight=2
   set colorcolumn=80
   set cursorline
   set diffopt=vertical
@@ -72,6 +76,8 @@ scriptencoding utf-16
   set noswapfile
   set number
   set shiftwidth=2
+  set shortmess+=c
+  set signcolumn=yes
   set smartcase
   set spelllang=en_us
   set splitbelow
@@ -80,7 +86,15 @@ scriptencoding utf-16
   set tabstop=2
   set termguicolors
   set ttyfast
-  set ttymouse=xterm2
+  set updatetime=300
+
+  if has('nvim')
+    set guicursor=
+  end
+
+  if !has('nvim')
+    set ttymouse=xterm2
+  end
 
   cnoreabbrev W! w!
   cnoreabbrev Q! q!
@@ -123,13 +137,14 @@ scriptencoding utf-16
 " Mappings {{{
   let mapleader = "\\"
 
-  execute "set <M-q>=\eq"
+  if !has('nvim')
+    execute "set <M-q>=\eq"
+    execute "set <M-a>=\ea"
+    execute "set <M-s>=\es"
+  end
+
   map <silent> <M-q> :Bdelete<cr>
-
-  execute "set <M-a>=\ea"
   map <silent> <M-a> :bp<cr>
-
-  execute "set <M-s>=\es"
   map <silent> <M-s> :bn<cr>
 
   nnoremap <tab> >>
