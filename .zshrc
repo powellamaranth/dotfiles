@@ -41,7 +41,7 @@ if ! zplug check --verbose; then
 fi
 
 # Plugins Config
-if [ "$TERM_PROGRAM" != "iTerm.app" ]; then
+if [ "$TERM_PROGRAM" != "Apple_Terminal" ] && [ "$TERM_PROGRAM" != "iTerm.app" ]; then
   ZSH_TMUX_AUTOSTART=true
 fi
 

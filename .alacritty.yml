@@ -1,7 +1,16 @@
+live_config_reload: true
+
+scrolling:
+  history: 0
+
 font:
+  use_thin_strokes: true
   size: 14
   normal:
     family: Fira Code
+
+cursor:
+  unfocused_hollow: true
 
 colors:
   primary:
@@ -118,4 +127,12 @@ key_bindings:
   - { key: Slash,     mods: Alt,       chars: "\x1b/"                       } # Alt + /
   - { key: RBracket,  mods: Alt,       chars: "\x1b]"                       } # Alt + ]
   - { key: LBracket,  mods: Alt,       chars: "\x1b["                       } # Alt + [
+  - { key: V,         mods: Command,   action: Paste                        }
+  - { key: C,         mods: Command,   action: Copy                         }
+  - { key: Q,         mods: Command,   action: Quit                         }
+  - { key: N,         mods: Command,   action: SpawnNewInstance             }
+  - { key: Return,    mods: Command,   action: ToggleFullscreen             }
+  - { key: Equals,    mods: Command,   action: IncreaseFontSize             }
+  - { key: Minus,     mods: Command,   action: DecreaseFontSize             }
+  - { key: 0,         mods: Command,   action: ResetFontSize                }
 
