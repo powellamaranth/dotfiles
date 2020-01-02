@@ -1,16 +1,17 @@
 # Exports
+export EDITOR=nvim
 export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
-export EDITOR=nvim
-export TERM="screen-256color"
-export HISTCONTROL=ignoreboth:erasedups
 export PATH=$HOME/bin:$PATH
+export TERM="screen-256color"
 
 # History
+HISTCONTROL=ignoreboth:erasedups
 HISTFILE="$HOME/.zsh_history"
 HISTSIZE=50000
 SAVEHIST=10000
 
+# Misc
 setopt extended_history
 setopt hist_expire_dups_first
 setopt hist_ignore_all_dups
@@ -32,6 +33,8 @@ zplug 'plugins/git', from:oh-my-zsh
 zplug 'plugins/fzf', from:oh-my-zsh
 zplug 'plugins/tmux', from:oh-my-zsh
 zplug 'plugins/asdf', from:oh-my-zsh
+zplug 'zsh-users/zsh-autosuggestions'
+zplug 'zsh-users/zsh-syntax-highlighting', defer:2
 
 if ! zplug check --verbose; then
     printf "Install? [y/N]: "
@@ -47,6 +50,3 @@ fi
 
 zplug load
 
-# init asdf
-. /usr/local/opt/asdf/asdf.sh
-. /usr/local/opt/asdf/etc/bash_completion.d/asdf.bash
