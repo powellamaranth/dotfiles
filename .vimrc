@@ -144,9 +144,9 @@ scriptencoding utf-16
     execute "set <M-s>=\es"
   end
 
-  map <silent> <M-q> :Bdelete<cr>
-  map <silent> <M-a> :bp<cr>
-  map <silent> <M-s> :bn<cr>
+  map <silent> <s-q> :Bdelete<cr>
+  map <silent> <s-Right> :bp<cr>
+  map <silent> <s-Left> :bn<cr>
 
   nnoremap <tab> >>
   nnoremap <s-tab> <<
@@ -183,14 +183,30 @@ scriptencoding utf-16
 
   nmap <silent> <c-p> :FZF<cr>
 
-  vmap <C-c><C-c> <Plug>SendSelectionToTmux
-  nmap <C-c><C-c> <Plug>NormalModeSendToTmux
-  nmap <C-c>r <Plug>SetTmuxVars
+  vmap <c-c><c-c> <Plug>SendSelectionToTmux
+  nmap <c-c><c-c> <Plug>NormalModeSendToTmux
+  nmap <c-c>r <Plug>SetTmuxVars
 
-  vmap <C-c> "+y
-  vmap <C-x> "+c
-  vmap <C-v> c<ESC>"+p
-  imap <C-v> <ESC>"+pa
+  vmap <c-c> "+y
+  vmap <c-x> "+c
+  vmap <c-v> c<esc>"+p
+  imap <c-v> <esc>"+pa
+
+  map  <esc>[1;5A <c-Up>
+  map  <esc>[1;5B <c-Down>
+  map  <esc>[1;5D <c-Left>
+  map  <esc>[1;5C <c-Right>
+
+  cmap <esc>[1;5A <c-Up>
+  cmap <esc>[1;5B <c-Down>
+  cmap <esc>[1;5D <c-Left>
+  cmap <esc>[1;5C <c-Right>
+
+  map  <esc>[1;2D <s-Left>
+  map  <esc>[1;2C <s-Right>
+
+  cmap <esc>[1;2D <s-Left>
+  cmap <esc>[1;2C <s-Right>
   " }}}
 
 " AutoGroups {{{
