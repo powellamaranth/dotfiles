@@ -22,7 +22,6 @@ scriptencoding utf-16
     Plug 'editorconfig/editorconfig-vim'
     Plug 'ervandew/supertab'
     Plug 'janko-m/vim-test'
-    Plug 'jgdavey/tslime.vim'
     Plug 'jiangmiao/auto-pairs'
     Plug 'joshdick/onedark.vim'
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -38,7 +37,6 @@ scriptencoding utf-16
     Plug 'moll/vim-bbye'
     Plug 'nestorsalceda/vim-strip-trailing-whitespaces'
     Plug 'pgdouyon/vim-evanesco'
-    Plug 'roxma/vim-paste-easy'
     Plug 'scrooloose/nerdtree'
     Plug 'sheerun/vim-polyglot'
     Plug 'sstallion/vim-cursorline'
@@ -51,7 +49,6 @@ scriptencoding utf-16
     Plug 'tpope/vim-rsi'
     Plug 'tpope/vim-sensible'
     Plug 'tpope/vim-surround'
-    Plug 'tpope/vim-unimpaired'
     Plug 'vim-airline/vim-airline'
   call plug#end()
 " }}}
@@ -182,10 +179,6 @@ scriptencoding utf-16
   nnoremap <space> za
 
   nmap <silent> <c-p> :FZF<cr>
-
-  vmap <c-c><c-c> <Plug>SendSelectionToTmux
-  nmap <c-c><c-c> <Plug>NormalModeSendToTmux
-  nmap <c-c>r <Plug>SetTmuxVars
 
   vmap <c-c> "+y
   vmap <c-x> "+c
