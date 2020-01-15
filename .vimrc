@@ -141,6 +141,9 @@ scriptencoding utf-16
     execute "set <M-s>=\es"
   end
 
+  nnoremap ]<space> o<esc>
+  nnoremap [<space> O<esc>
+
   map <silent> <s-q> :Bdelete<cr>
   map <silent> <s-Right> :bp<cr>
   map <silent> <s-Left> :bn<cr>
