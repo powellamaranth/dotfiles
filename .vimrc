@@ -135,12 +135,6 @@ scriptencoding utf-16
 " Mappings {{{
   let mapleader = "\\"
 
-  if !has('nvim')
-    execute "set <M-q>=\eq"
-    execute "set <M-a>=\ea"
-    execute "set <M-s>=\es"
-  end
-
   nnoremap ]<space> o<esc>
   nnoremap [<space> O<esc>
 
