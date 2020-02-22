@@ -49,6 +49,7 @@ scriptencoding utf-16
     Plug 'tpope/vim-rsi'
     Plug 'tpope/vim-sensible'
     Plug 'tpope/vim-surround'
+    Plug 'tpope/vim-unimpaired'
     Plug 'vim-airline/vim-airline'
   call plug#end()
 " }}}
@@ -177,10 +178,11 @@ scriptencoding utf-16
 
   nmap <silent> <c-p> :FZF<cr>
 
-  vmap <c-c> "+y
-  vmap <c-x> "+c
-  vmap <c-v> c<esc>"+p
+  nmap <c-c> "+y
+  nmap <c-x> "+c
+  nmap <c-v> c<esc>"+p
   imap <c-v> <esc>"+pa
+  cmap <c-v> <c-r>+
 
   map  <esc>[1;5A <c-Up>
   map  <esc>[1;5B <c-Down>
