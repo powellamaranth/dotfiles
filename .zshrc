@@ -28,11 +28,13 @@ eval "$(starship init zsh)"
 export ZPLUG_HOME=$HOME/.zplug
 source $ZPLUG_HOME/init.zsh
 
+zplug 'djui/alias-tips'
 zplug 'dracula/zsh', as:theme
-zplug 'plugins/git', from:oh-my-zsh
-zplug 'plugins/fzf', from:oh-my-zsh
-zplug 'plugins/tmux', from:oh-my-zsh
 zplug 'plugins/asdf', from:oh-my-zsh
+zplug 'plugins/bgnotify', from:oh-my-zsh
+zplug 'plugins/fzf', from:oh-my-zsh
+zplug 'plugins/git', from:oh-my-zsh
+zplug 'plugins/tmux', from:oh-my-zsh
 zplug 'zsh-users/zsh-autosuggestions'
 zplug 'zsh-users/zsh-syntax-highlighting', defer:2
 
@@ -49,4 +51,10 @@ if [ "$TERM_PROGRAM" != "Apple_Terminal" ] && [ "$TERM_PROGRAM" != "iTerm.app" ]
 fi
 
 zplug load
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+if type nvim > /dev/null 2>&1; then
+  alias vim='nvim'
+fi
 
