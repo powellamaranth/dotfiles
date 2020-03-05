@@ -31,7 +31,6 @@ source $ZPLUG_HOME/init.zsh
 zplug 'djui/alias-tips'
 zplug 'dracula/zsh', as:theme
 zplug 'plugins/asdf', from:oh-my-zsh
-zplug 'plugins/bgnotify', from:oh-my-zsh
 zplug 'plugins/fzf', from:oh-my-zsh
 zplug 'plugins/git', from:oh-my-zsh
 zplug 'plugins/tmux', from:oh-my-zsh
