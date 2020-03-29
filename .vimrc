@@ -29,10 +29,10 @@ scriptencoding utf-16
     Plug 'junegunn/vim-easy-align'
     Plug 'kana/vim-textobj-line'
     Plug 'kana/vim-textobj-user'
+    Plug 'liuchengxu/vista.vim'
     Plug 'ludovicchabant/vim-gutentags'
     Plug 'luochen1990/rainbow'
     Plug 'machakann/vim-highlightedyank'
-    Plug 'majutsushi/tagbar'
     Plug 'michaeljsmith/vim-indent-object'
     Plug 'moll/vim-bbye'
     Plug 'nestorsalceda/vim-strip-trailing-whitespaces'
@@ -111,17 +111,15 @@ scriptencoding utf-16
   let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
   let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
   let &t_ut = ''
-  let g:tagbar_autofocus = 1
-  let g:tagbar_width = 40
-  let g:NERDTreeWinSize = 40
   let g:NERDTreeShowHidden = 1
   let g:NERDTreeWinPos = 'right'
+  let g:NERDTreeWinSize = 40
   let g:airline#extensions#tabline#enabled = 1
-  let g:ale_sign_column_always = 1
   let g:fzf_action = { 'ctrl-t': 'tab split', 'ctrl-i': 'split', 'ctrl-s': 'vsplit' }
   let g:gitgutter_map_keys = 0
   let g:rainbow_active = 1
   let g:tmux_navigator_no_mappings = 1
+  let g:vista_sidebar_width = 40
   let test#strategy = "vimux"
 " }}}
 
@@ -151,8 +149,8 @@ scriptencoding utf-16
   xmap gai <Plug>(EasyAlign)
   nmap ga <Plug>(EasyAlign)
 
-  map <silent> <leader>[ :NERDTreeClose<cr>:TagbarToggle<cr>
-  map <silent> <leader>] :TagbarClose<cr>:NERDTreeToggle<cr>
+  map <silent> <leader>[ :NERDTreeClose<cr>:Vista!!<cr>
+  map <silent> <leader>] :Vista!<cr>:NERDTreeToggle<cr>
 
   map <leader>v :vs<cr>
   map <leader>s :sp<cr>
@@ -199,21 +197,12 @@ scriptencoding utf-16
 
   cmap <esc>[1;2D <s-Left>
   cmap <esc>[1;2C <s-Right>
-  " }}}
+" }}}
 
 " AutoGroups {{{
-  augroup tagbar
-    au!
-    au BufEnter * if bufname('#') =~ '__Tagbar__' && bufname('%') !~ '__Tagbar__' | b# | exe "normal! \<c-w>\<c-w>" | :blast | endif
-  augroup END
-
-  augroup nerdtree
-    au!
-    au BufEnter * if bufname('#') =~ 'NERD_tree' && bufname('%') !~ 'NERD_tree' && winnr('$') > 1 | b# | exe "normal! \<c-w>\<c-w>" | :blast | endif
-  augroup END
-
   augroup vimrc-reload
     au!
     au BufWritePost .vimrc nested source % | redraw
   augroup END
 " }}}
+
