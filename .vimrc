@@ -117,6 +117,7 @@ scriptencoding utf-16
   let g:airline#extensions#tabline#enabled = 1
   let g:fzf_action = { 'ctrl-t': 'tab split', 'ctrl-i': 'split', 'ctrl-s': 'vsplit' }
   let g:gitgutter_map_keys = 0
+  let g:highlightedyank_highlight_duration = 150
   let g:rainbow_active = 1
   let g:tmux_navigator_no_mappings = 1
   let g:vista_sidebar_width = 40
@@ -176,7 +177,7 @@ scriptencoding utf-16
 
   nmap <silent> <c-p> :FZF<cr>
 
-  nmap <c-c> "+y
+  vmap <c-c> "+y
   nmap <c-x> "+c
   nmap <c-v> c<esc>"+p
   imap <c-v> <esc>"+pa
