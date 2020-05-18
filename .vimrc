@@ -19,12 +19,12 @@ scriptencoding utf-16
     Plug 'benmills/vimux'
     Plug 'bhurlow/vim-parinfer'
     Plug 'christoomey/vim-tmux-navigator'
+    Plug 'dracula/vim', { 'as': 'dracula' }
     Plug 'editorconfig/editorconfig-vim'
     Plug 'ervandew/supertab'
     Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
     Plug 'janko-m/vim-test'
     Plug 'jiangmiao/auto-pairs'
-    Plug 'joshdick/onedark.vim'
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
     Plug 'junegunn/fzf.vim'
     Plug 'junegunn/vim-easy-align'
@@ -38,6 +38,7 @@ scriptencoding utf-16
     Plug 'moll/vim-bbye'
     Plug 'nestorsalceda/vim-strip-trailing-whitespaces'
     Plug 'pgdouyon/vim-evanesco'
+    Plug 'ryanoasis/vim-devicons'
     Plug 'scrooloose/nerdtree'
     Plug 'sheerun/vim-polyglot'
     Plug 'sstallion/vim-cursorline'
@@ -58,7 +59,6 @@ scriptencoding utf-16
 " Globals {{{
   set background=dark
   set cmdheight=2
-  set colorcolumn=80
   set cursorline
   set diffopt=vertical
   set encoding=utf8
@@ -131,7 +131,7 @@ scriptencoding utf-16
 
 " Theme {{{
   try
-    colorscheme onedark
+    colorscheme dracula
   catch /^Vim\%((\a\+)\)\=:E185/
     " deal with it
   endtry
