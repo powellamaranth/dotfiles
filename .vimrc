@@ -21,6 +21,7 @@ scriptencoding utf-16
     Plug 'christoomey/vim-tmux-navigator'
     Plug 'editorconfig/editorconfig-vim'
     Plug 'ervandew/supertab'
+    Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
     Plug 'janko-m/vim-test'
     Plug 'jiangmiao/auto-pairs'
     Plug 'joshdick/onedark.vim'
@@ -83,9 +84,15 @@ scriptencoding utf-16
   set splitright
   set t_Co=256
   set tabstop=2
-  set termguicolors
   set ttyfast
   set updatetime=300
+
+  if has('termguicolors')
+    let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+    let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+
+    set termguicolors
+  endif
 
   if has('nvim')
     set guicursor=
@@ -108,8 +115,6 @@ scriptencoding utf-16
 " }}}
 
 " Plugin Config {{{
-  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
   let &t_ut = ''
   let g:NERDTreeShowHidden = 1
   let g:NERDTreeWinPos = 'right'
@@ -135,12 +140,9 @@ scriptencoding utf-16
 " Mappings {{{
   let mapleader = "\\"
 
-  nnoremap ]<space> o<esc>
-  nnoremap [<space> O<esc>
-
   map <silent> <s-q> :Bdelete<cr>
-  map <silent> <s-Right> :bp<cr>
-  map <silent> <s-Left> :bn<cr>
+  map <silent> <s-Right> :bn<cr>
+  map <silent> <s-Left> :bp<cr>
 
   nnoremap <tab> >>
   nnoremap <s-tab> <<
