@@ -82,6 +82,7 @@ scriptencoding utf-16
   set spelllang=en_us
   set splitbelow
   set splitright
+  set statusline+=%{gutentags#statusline()}
   set t_Co=256
   set tabstop=2
   set ttyfast
@@ -115,6 +116,7 @@ scriptencoding utf-16
 " }}}
 
 " Plugin Config {{{
+  let g:gutentags_ctags_tagfile = '.ctags'
   let &t_ut = ''
   let g:NERDTreeShowHidden = 1
   let g:NERDTreeWinPos = 'right'
@@ -178,12 +180,6 @@ scriptencoding utf-16
   nnoremap <space> za
 
   nmap <silent> <c-p> :FZF<cr>
-
-  vmap <c-c> "+y
-  nmap <c-x> "+c
-  nmap <c-v> c<esc>"+p
-  imap <c-v> <esc>"+pa
-  cmap <c-v> <c-r>+
 
   map  <esc>[1;5A <c-Up>
   map  <esc>[1;5B <c-Down>
