@@ -1,6 +1,7 @@
 tags
+ctags
 .env.qa
 .env.prod
 .tool-versions
 .DS_Store
-
+.ctags
