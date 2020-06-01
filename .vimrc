@@ -5,10 +5,6 @@ scriptencoding utf-16
     exe 'silent !curl -fLo '.expand('~/.vim/autoload/plug.vim').' --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
     autocmd VimEnter * PlugInstall --sync | exit | source $MYVIMRC
   endif
-  if empty(glob('~/.local/share/nvim/site/autoload/plug.vim')) && has('nvim')
-    exe 'silent !curl -fLo '.expand('~/.local/share/nvim/site/autoload/plug.vim').' --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-    autocmd VimEnter * PlugInstall --sync | exit | source $MYVIMRC
-  endif
 " }}}
 
 " Plugins {{{
