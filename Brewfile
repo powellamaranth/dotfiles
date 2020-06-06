@@ -18,6 +18,7 @@ brew "tmux"
 brew "universal-ctags/universal-ctags/universal-ctags", args: ["HEAD"]
 brew "vim"
 brew "zsh"
+brew "reattach-to-user-namespace"
 
 cask "alacritty"
 cask "authy"
@@ -30,3 +31,5 @@ cask "iterm2"
 cask "pritunl"
 cask "shiftit"
 cask "slack"
+cask "insomnia"
+

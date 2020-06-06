@@ -142,6 +142,8 @@ scriptencoding utf-16
   map <silent> <s-Right> :bn<cr>
   map <silent> <s-Left> :bp<cr>
 
+  imap jj <Esc>
+
   nnoremap <tab> >>
   nnoremap <s-tab> <<
   vnoremap <tab> >gv
