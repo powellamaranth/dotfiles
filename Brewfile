@@ -19,6 +19,8 @@ brew "universal-ctags/universal-ctags/universal-ctags", args: ["HEAD"]
 brew "vim"
 brew "zsh"
 brew "reattach-to-user-namespace"
+brew "coreutils"
+brew "gpg"
 
 cask "alacritty"
 cask "authy"
