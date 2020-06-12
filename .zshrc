@@ -28,6 +28,7 @@ eval "$(starship init zsh)"
 export ZPLUG_HOME=$HOME/.zplug
 source $ZPLUG_HOME/init.zsh
 
+zplug 'plugins/thefuck', from:oh-my-zsh
 zplug 'djui/alias-tips'
 zplug 'dracula/zsh', as:theme
 zplug 'plugins/asdf', from:oh-my-zsh
@@ -57,3 +58,6 @@ if type nvim > /dev/null 2>&1; then
   alias vim='nvim'
 fi
 
+if type direnv > /dev/null 2>&1; then
+  eval "$(direnv hook zsh)"
+fi

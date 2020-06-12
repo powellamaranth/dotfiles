@@ -44,6 +44,7 @@ scriptencoding utf-16
     Plug 'tpope/vim-endwise'
     Plug 'tpope/vim-fugitive'
     Plug 'tpope/vim-repeat'
+    Plug 'tpope/vim-rhubarb'
     Plug 'tpope/vim-rsi'
     Plug 'tpope/vim-sensible'
     Plug 'tpope/vim-surround'
@@ -161,7 +162,7 @@ scriptencoding utf-16
   map <leader>t :TestNearest<cr>
   map <leader>T :TestFile<cr>
 
-  nnoremap <leader>ev :e $MYVIMRC<cr>
+  nnoremap <leader>ev :e ~/.vimrc<cr>
   nnoremap <leader>ez :e ~/.zshrc<cr>
 
   nnoremap <expr> <up> v:count == 0 ? 'gk' : 'k'
