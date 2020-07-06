@@ -21,14 +21,12 @@ setopt inc_append_history
 setopt share_history
 
 bindkey -e
-eval "$(starship init zsh)"
 
 # Plugins
 [ ! -d ~/.zplug ] && curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
 export ZPLUG_HOME=$HOME/.zplug
 source $ZPLUG_HOME/init.zsh
 
-zplug 'plugins/thefuck', from:oh-my-zsh
 zplug 'djui/alias-tips'
 zplug 'dracula/zsh', as:theme
 zplug 'plugins/asdf', from:oh-my-zsh
@@ -61,3 +59,8 @@ fi
 if type direnv > /dev/null 2>&1; then
   eval "$(direnv hook zsh)"
 fi
+
+if type starship > /dev/null 2>&1; then
+  eval "$(starship init zsh)"
+fi
+

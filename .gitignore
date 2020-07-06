@@ -5,3 +5,4 @@ ctags
 .tool-versions
 .DS_Store
 .ctags
+.envrc
