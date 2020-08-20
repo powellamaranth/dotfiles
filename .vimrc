@@ -9,11 +9,12 @@ scriptencoding utf-16
 
 " Plugins {{{
   call plug#begin('~/.vim/plugged')
+    Plug 'TaDaa/vimade', { 'do': 'pip install --user neovim' }
     Plug 'Xuyuanp/nerdtree-git-plugin'
     Plug 'airblade/vim-gitgutter'
     Plug 'andymass/vim-matchup'
     Plug 'benmills/vimux'
-    Plug 'bhurlow/vim-parinfer'
+    Plug 'bhurlow/vim-parinfer', { 'for': 'clojure' }
     Plug 'christoomey/vim-tmux-navigator'
     Plug 'dracula/vim', { 'as': 'dracula' }
     Plug 'editorconfig/editorconfig-vim'
