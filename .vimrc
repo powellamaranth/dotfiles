@@ -9,7 +9,7 @@ scriptencoding utf-16
 
 " Plugins {{{
   call plug#begin('~/.vim/plugged')
-    Plug 'TaDaa/vimade', { 'do': 'pip install --user neovim' }
+    Plug 'TaDaa/vimade', { 'do': 'pip install neovim' }
     Plug 'Xuyuanp/nerdtree-git-plugin'
     Plug 'airblade/vim-gitgutter'
     Plug 'andymass/vim-matchup'
@@ -27,6 +27,7 @@ scriptencoding utf-16
     Plug 'junegunn/vim-easy-align'
     Plug 'kana/vim-textobj-line'
     Plug 'kana/vim-textobj-user'
+    Plug 'kevinhwang91/rnvimr', { 'do': 'pip install ranger-fm pynvim' }
     Plug 'liuchengxu/vista.vim'
     Plug 'ludovicchabant/vim-gutentags'
     Plug 'luochen1990/rainbow'
@@ -114,7 +115,7 @@ scriptencoding utf-16
 " }}}
 
 " Plugin Config {{{
-  let g:gutentags_ctags_tagfile = '.ctags'
+  let $FZF_DEFAULT_OPTS="--ansi --preview-window 'right:60%' --layout reverse --margin=1,4 --bind 'alt-j:preview-down,alt-k:preview-up,alt-d:preview-page-down,alt-u:preview-page-up' --preview 'bat --theme Dracula --style snip --color always {}'"
   let &t_ut = ''
   let g:NERDTreeShowHidden = 1
   let g:NERDTreeWinPos = 'right'
@@ -122,8 +123,14 @@ scriptencoding utf-16
   let g:airline#extensions#tabline#enabled = 1
   let g:fzf_action = { 'ctrl-t': 'tab split', 'ctrl-i': 'split', 'ctrl-s': 'vsplit' }
   let g:gitgutter_map_keys = 0
+  let g:gutentags_ctags_tagfile = '.ctags'
   let g:highlightedyank_highlight_duration = 150
   let g:rainbow_active = 1
+  let g:rnvimr_enable_bw = 1
+  let g:rnvimr_enable_ex = 1
+  let g:rnvimr_enable_picker = 1
+  let g:rnvimr_layout = { 'relative' :'editor', 'width': float2nr(round(0.9 * &columns)), 'height': float2nr(round(0.9 * &lines)), 'col': float2nr(round(0.05 * &columns)), 'row': float2nr(round(0.05 * &lines)) }
+  let g:rnvimr_ranger_cmd = 'ranger --cmd="set column_ratios 1,2" --cmd="set draw_borders both"'
   let g:tmux_navigator_no_mappings = 1
   let g:vista_sidebar_width = 40
   let test#strategy = "vimux"
@@ -176,6 +183,10 @@ scriptencoding utf-16
   nnoremap <silent> <c-up> :TmuxNavigateUp<cr>
   nnoremap <silent> <c-right> :TmuxNavigateRight<cr>
   nnoremap <silent> <c-\> :TmuxNavigatePrevious<cr>
+
+  tnoremap <silent> <M-i> <C-\><C-n>:RnvimrResize<CR>
+  nnoremap <silent> <M-o> :RnvimrToggle<CR>
+  tnoremap <silent> <M-o> <C-\><C-n>:RnvimrToggle<CR>
 
   nnoremap <space> za
 

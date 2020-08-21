@@ -4,6 +4,7 @@ export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 export PATH=$HOME/bin:$PATH
 export TERM="screen-256color"
+export BAT_THEME="Dracula"
 
 # History
 HISTCONTROL=ignoreboth:erasedups
@@ -54,6 +55,10 @@ zplug load
 
 if type nvim > /dev/null 2>&1; then
   alias vim='nvim'
+fi
+
+if type bat > /dev/null 2>&1; then
+  alias cat="bat"
 fi
 
 if type direnv > /dev/null 2>&1; then

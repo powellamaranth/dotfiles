@@ -7,6 +7,7 @@ tap "homebrew/services"
 tap "universal-ctags/universal-ctags"
 
 brew "asdf"
+brew "bat"
 brew "colordiff"
 brew "coreutils"
 brew "diff-so-fancy"
