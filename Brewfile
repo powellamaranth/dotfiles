@@ -23,6 +23,7 @@ brew "thefuck"
 brew "tmux"
 brew "universal-ctags/universal-ctags/universal-ctags", args: ["HEAD"]
 brew "vim"
+brew "watch"
 brew "zsh"
 
 cask "alacritty"
