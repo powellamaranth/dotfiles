@@ -18,7 +18,6 @@ scriptencoding utf-16
     Plug 'christoomey/vim-tmux-navigator'
     Plug 'dracula/vim', { 'as': 'dracula' }
     Plug 'editorconfig/editorconfig-vim'
-    Plug 'ervandew/supertab'
     Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
     Plug 'janko-m/vim-test'
     Plug 'jiangmiao/auto-pairs'
@@ -27,13 +26,13 @@ scriptencoding utf-16
     Plug 'junegunn/vim-easy-align'
     Plug 'kana/vim-textobj-line'
     Plug 'kana/vim-textobj-user'
-    Plug 'kevinhwang91/rnvimr', { 'do': 'pip install ranger-fm pynvim' }
     Plug 'liuchengxu/vista.vim'
     Plug 'ludovicchabant/vim-gutentags'
     Plug 'luochen1990/rainbow'
     Plug 'machakann/vim-highlightedyank'
     Plug 'michaeljsmith/vim-indent-object'
     Plug 'moll/vim-bbye'
+    Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'nestorsalceda/vim-strip-trailing-whitespaces'
     Plug 'pgdouyon/vim-evanesco'
     Plug 'ryanoasis/vim-devicons'
@@ -126,11 +125,6 @@ scriptencoding utf-16
   let g:gutentags_ctags_tagfile = '.ctags'
   let g:highlightedyank_highlight_duration = 150
   let g:rainbow_active = 1
-  let g:rnvimr_enable_bw = 1
-  let g:rnvimr_enable_ex = 1
-  let g:rnvimr_enable_picker = 1
-  let g:rnvimr_layout = { 'relative' :'editor', 'width': float2nr(round(0.9 * &columns)), 'height': float2nr(round(0.9 * &lines)), 'col': float2nr(round(0.05 * &columns)), 'row': float2nr(round(0.05 * &lines)) }
-  let g:rnvimr_ranger_cmd = 'ranger --cmd="set column_ratios 1,2" --cmd="set draw_borders both"'
   let g:tmux_navigator_no_mappings = 1
   let g:vista_sidebar_width = 40
   let test#strategy = "vimux"
@@ -184,10 +178,6 @@ scriptencoding utf-16
   nnoremap <silent> <c-right> :TmuxNavigateRight<cr>
   nnoremap <silent> <c-\> :TmuxNavigatePrevious<cr>
 
-  tnoremap <silent> <M-i> <C-\><C-n>:RnvimrResize<CR>
-  nnoremap <silent> <M-o> :RnvimrToggle<CR>
-  tnoremap <silent> <M-o> <C-\><C-n>:RnvimrToggle<CR>
-
   nnoremap <space> za
 
   nmap <silent> <c-p> :FZF<cr>
@@ -207,6 +197,57 @@ scriptencoding utf-16
 
   cmap <esc>[1;2D <s-Left>
   cmap <esc>[1;2C <s-Right>
+
+  " coc.nvim mapings
+
+  " Remap <C-f> and <C-b> for scroll float windows/popups.
+  nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+  nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+  inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
+  inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
+  vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+  vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+
+  " Highlight the symbol and its references when holding the cursor.
+  autocmd CursorHold * silent call CocActionAsync('highlight')
+
+  " Symbol renaming.
+  nmap <leader>rn <Plug>(coc-rename)
+
+  " Formatting selected code.
+  xmap <leader>f  <Plug>(coc-format-selected)
+  nmap <leader>f  <Plug>(coc-format-selected)
+
+  " Use K to show documentation in preview window.
+  nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+  function! s:show_documentation()
+    if (index(['vim','help'], &filetype) >= 0)
+      execute 'h '.expand('<cword>')
+    elseif (coc#rpc#ready())
+      call CocActionAsync('doHover')
+    else
+      execute '!' . &keywordprg . " " . expand('<cword>')
+    endif
+  endfunction
+
+  " GoTo code navigation.
+  nmap <silent> gd <Plug>(coc-definition)
+  nmap <silent> gy <Plug>(coc-type-definition)
+  nmap <silent> gi <Plug>(coc-implementation)
+  nmap <silent> gr <Plug>(coc-references)
+
+  " use <tab> for trigger completion and navigate to the next complete item
+  function! s:check_back_space() abort
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~ '\s'
+  endfunction
+
+  inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+  inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 " }}}
 
 " AutoGroups {{{
