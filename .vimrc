@@ -9,7 +9,6 @@ scriptencoding utf-16
 
 " Plugins {{{
   call plug#begin('~/.vim/plugged')
-    Plug 'TaDaa/vimade', { 'do': 'pip install neovim' }
     Plug 'Xuyuanp/nerdtree-git-plugin'
     Plug 'airblade/vim-gitgutter'
     Plug 'andymass/vim-matchup'
@@ -34,6 +33,7 @@ scriptencoding utf-16
     Plug 'moll/vim-bbye'
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'nestorsalceda/vim-strip-trailing-whitespaces'
+    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
     Plug 'pgdouyon/vim-evanesco'
     Plug 'ryanoasis/vim-devicons'
     Plug 'scrooloose/nerdtree'
