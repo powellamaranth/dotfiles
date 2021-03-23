@@ -15,14 +15,13 @@ brew "direnv"
 brew "fzf"
 brew "gpg"
 brew "htop"
-brew "nvim"
+brew "nvim", args: ["HEAD"]
 brew "reattach-to-user-namespace"
 brew "starship"
 brew "the_silver_searcher"
 brew "thefuck"
 brew "tmux"
 brew "universal-ctags/universal-ctags/universal-ctags", args: ["HEAD"]
-brew "vim"
 brew "watch"
 brew "zsh"
 
