@@ -34,8 +34,10 @@ zplug 'plugins/asdf', from:oh-my-zsh
 zplug 'plugins/fzf', from:oh-my-zsh
 zplug 'plugins/git', from:oh-my-zsh
 zplug 'plugins/tmux', from:oh-my-zsh
+zplug 'plugins/virtualenvwrapper', from:oh-my-zsh
 zplug 'zsh-users/zsh-autosuggestions'
 zplug 'zsh-users/zsh-syntax-highlighting', defer:2
+zplug 'plugins/pyenv', from:oh-my-zsh
 
 if ! zplug check --verbose; then
     printf "Install? [y/N]: "
@@ -69,3 +71,6 @@ if type starship > /dev/null 2>&1; then
   eval "$(starship init zsh)"
 fi
 
+source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc
+source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc
+if [ /usr/local/bin/kubectl ]; then source <(kubectl completion zsh); fi
