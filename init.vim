@@ -20,6 +20,7 @@
     Plug 'kana/vim-textobj-line'
     Plug 'kana/vim-textobj-user'
     Plug 'liuchengxu/vista.vim'
+    Plug 'ludovicchabant/vim-gutentags'
     Plug 'machakann/vim-highlightedyank'
     Plug 'michaeljsmith/vim-indent-object'
     Plug 'moll/vim-bbye'
@@ -52,8 +53,8 @@
   set encoding=utf8
   set expandtab
   set fdm=expr
-  set foldlevelstart=99
   set foldexpr=nvim_treesitter#foldexpr()
+  set foldlevelstart=99
   set guicursor=
   set hlsearch
   set ignorecase
@@ -61,12 +62,13 @@
   set modelines=1
   set mouse=a
   set nocompatible
-  set noeb vb t_vb=
   set nostartofline
   set noswapfile
   set number
   set shiftwidth=2
   set shortmess+=c
+  set shortmess+=c
+  set signcolumn=number
   set signcolumn=yes
   set smartcase
   set spelllang=en_us
@@ -99,8 +101,6 @@
 " }}}
 
 " Mappings {{{
-  let mapleader = "\\"
-
   map <silent> <s-q> :Bdelete<cr>
   map <silent> <s-Right> :bn<cr>
   map <silent> <s-Left> :bp<cr>
@@ -165,15 +165,17 @@
   let g:airline#extensions#tabline#enabled = 1
   let g:fzf_action = { 'ctrl-t': 'tab split', 'ctrl-i': 'split', 'ctrl-s': 'vsplit' }
   let g:gitgutter_map_keys = 0
+  let g:gutentags_ctags_tagfile = '.ctags'
   let g:highlightedyank_highlight_duration = 150
   let g:tmux_navigator_no_mappings = 1
   let g:vista_executive = 'coc'
   let g:vista_finder_alternative_executives = 'ctags'
   let g:vista_sidebar_width = 40
+  let mapleader = "\\"
 
 lua <<EOF
   require'nvim-treesitter.configs'.setup {
-    ensure_installed = "maintained",
+    ensure_installed = {"python", "java", "go", "ruby", "javascript"},
     highlight = {
       enable = true,
     },
