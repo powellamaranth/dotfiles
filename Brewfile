@@ -26,6 +26,7 @@ brew "watch"
 brew "zsh"
 
 cask "alacritty"
+cask "atom"
 cask "authy"
 cask "docker"
 cask "font-fira-code-nerd-font"
