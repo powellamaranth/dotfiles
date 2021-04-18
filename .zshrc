@@ -59,3 +59,7 @@ zplug load
 alias vim="nvim"
 alias cat="bat"
 eval "$(starship init zsh)"
+
+[ -f  ~/.asdf/plugins/java/set-java-home.zsh ] source ~/.asdf/plugins/java/set-java-home.zsh
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
