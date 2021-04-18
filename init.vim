@@ -25,7 +25,7 @@
     Plug 'michaeljsmith/vim-indent-object'
     Plug 'moll/vim-bbye'
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
-    Plug 'nestorsalceda/vim-strip-trailing-whitespaces'
+    Plug 'ntpeters/vim-better-whitespace'
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
     Plug 'pgdouyon/vim-evanesco'
     Plug 'ryanoasis/vim-devicons'
@@ -74,6 +74,7 @@
   set spelllang=en_us
   set splitbelow
   set splitright
+  set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
   set t_Co=256
   set tabstop=2
   set termguicolors
@@ -102,24 +103,11 @@
 
 " Mappings {{{
   map <silent> <s-q> :Bdelete<cr>
-  map <silent> <s-Right> :bn<cr>
-  map <silent> <s-Left> :bp<cr>
-
-  imap jj <Esc>
-
-  nnoremap <tab> >>
-  nnoremap <s-tab> <<
-  vnoremap <tab> >gv
-  vnoremap <s-tab> <gv
-
-  xmap gai <Plug>(EasyAlign)
-  nmap ga <Plug>(EasyAlign)
+  map <silent> <s-right> :bn<cr>
+  map <silent> <s-left> :bp<cr>
 
   map <silent> <leader>[ :NERDTreeClose<cr>:Vista!!<cr>
   map <silent> <leader>] :Vista!<cr>:NERDTreeToggle<cr>
-
-  map <leader>v :vs<cr>
-  map <leader>s :sp<cr>
 
   nnoremap <leader>ev :e ~/.config/nvim/init.vim<cr>
   nnoremap <leader>ez :e ~/.zshrc<cr>
@@ -163,10 +151,13 @@
   let g:NERDTreeWinPos = 'right'
   let g:NERDTreeWinSize = 40
   let g:airline#extensions#tabline#enabled = 1
+  let g:better_whitespace_enabled = 1
+  let g:coc_global_extensions = ['coc-json', 'coc-pyright', 'coc-java', 'coc-go']
   let g:fzf_action = { 'ctrl-t': 'tab split', 'ctrl-i': 'split', 'ctrl-s': 'vsplit' }
   let g:gitgutter_map_keys = 0
   let g:gutentags_ctags_tagfile = '.ctags'
   let g:highlightedyank_highlight_duration = 150
+  let g:strip_whitespace_on_save = 1
   let g:tmux_navigator_no_mappings = 1
   let g:vista_executive = 'coc'
   let g:vista_finder_alternative_executives = 'ctags'
@@ -175,7 +166,7 @@
 
 lua <<EOF
   require'nvim-treesitter.configs'.setup {
-    ensure_installed = {"python", "java", "go", "ruby", "javascript"},
+    ensure_installed = {"python", "java", "go", "json"},
     highlight = {
       enable = true,
     },
