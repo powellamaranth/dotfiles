@@ -3,7 +3,6 @@ export EDITOR=nvim
 export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 export PATH=$HOME/bin:$PATH
-export TERM="screen-256color"
 export BAT_THEME="Dracula"
 
 # History

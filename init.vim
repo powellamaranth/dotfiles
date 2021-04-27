@@ -123,29 +123,10 @@
   nnoremap <silent> <c-\> :TmuxNavigatePrevious<cr>
 
   nmap <silent> <c-p> :FZF<cr>
-
-  map  <esc>[1;5A <c-Up>
-  map  <esc>[1;5B <c-Down>
-  map  <esc>[1;5D <c-Left>
-  map  <esc>[1;5C <c-Right>
-
-  cmap <esc>[1;5A <c-Up>
-  cmap <esc>[1;5B <c-Down>
-  cmap <esc>[1;5D <c-Left>
-  cmap <esc>[1;5C <c-Right>
-
-  map  <esc>[1;2D <s-Left>
-  map  <esc>[1;2C <s-Right>
-
-  cmap <esc>[1;2D <s-Left>
-  cmap <esc>[1;2C <s-Right>
 " }}}
 
 " Config {{{
-  let $FZF_DEFAULT_OPTS="--ansi --preview-window 'right:60%' --layout reverse --bind 'alt-j:preview-down,alt-k:preview-up,alt-d:preview-page-down,alt-u:preview-page-up' --preview 'bat --theme Dracula --style snip --color always {}'"
-  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-  let &t_ut = ''
+  let $FZF_DEFAULT_OPTS = "--ansi --preview-window 'right:60%' --layout reverse --bind 'alt-j:preview-down,alt-k:preview-up,alt-d:preview-page-down,alt-u:preview-page-up' --preview 'bat --theme Dracula --style snip --color always {}'"
   let g:NERDTreeShowHidden = 1
   let g:NERDTreeWinPos = 'right'
   let g:NERDTreeWinSize = 40
