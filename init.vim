@@ -14,8 +14,6 @@
     Plug 'dracula/vim', { 'as': 'dracula' }
     Plug 'editorconfig/editorconfig-vim'
     Plug 'jiangmiao/auto-pairs'
-    Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-    Plug 'junegunn/fzf.vim'
     Plug 'junegunn/vim-easy-align'
     Plug 'kana/vim-textobj-line'
     Plug 'kana/vim-textobj-user'
@@ -26,6 +24,9 @@
     Plug 'moll/vim-bbye'
     Plug 'neovim/nvim-lspconfig'
     Plug 'ntpeters/vim-better-whitespace'
+    Plug 'nvim-lua/plenary.nvim'
+    Plug 'nvim-lua/popup.nvim'
+    Plug 'nvim-telescope/telescope.nvim'
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
     Plug 'pgdouyon/vim-evanesco'
     Plug 'ryanoasis/vim-devicons'
@@ -52,13 +53,11 @@
   set diffopt=vertical
   set encoding=utf8
   set expandtab
-  set fdm=expr
   set foldexpr=nvim_treesitter#foldexpr()
   set foldlevelstart=99
-  set guicursor=
+  set foldmethod=expr
   set hlsearch
   set ignorecase
-  set lazyredraw
   set modelines=1
   set mouse=a
   set nocompatible
@@ -66,18 +65,12 @@
   set noswapfile
   set number
   set shiftwidth=2
-  set shortmess+=c
-  set shortmess+=c
-  set signcolumn=number
   set signcolumn=yes
   set smartcase
   set spelllang=en_us
   set splitbelow
   set splitright
-  set t_Co=256
   set tabstop=2
-  set termguicolors
-  set ttyfast
   set updatetime=300
 
   cnoreabbrev W! w!
@@ -122,17 +115,15 @@
   nnoremap <silent> <c-right> :TmuxNavigateRight<cr>
   nnoremap <silent> <c-\> :TmuxNavigatePrevious<cr>
 
-  nmap <silent> <c-p> :FZF<cr>
+  nnoremap <c-p> <cmd>Telescope find_files<cr>
 " }}}
 
 " Config {{{
-  let $FZF_DEFAULT_OPTS = "--ansi --preview-window 'right:60%' --layout reverse --bind 'alt-j:preview-down,alt-k:preview-up,alt-d:preview-page-down,alt-u:preview-page-up' --preview 'bat --theme Dracula --style snip --color always {}'"
   let g:NERDTreeShowHidden = 1
   let g:NERDTreeWinPos = 'right'
   let g:NERDTreeWinSize = 40
   let g:airline#extensions#tabline#enabled = 1
   let g:better_whitespace_enabled = 1
-  let g:fzf_action = { 'ctrl-t': 'tab split', 'ctrl-i': 'split', 'ctrl-s': 'vsplit' }
   let g:gitgutter_map_keys = 0
   let g:gutentags_ctags_tagfile = '.ctags'
   let g:highlightedyank_highlight_duration = 150
