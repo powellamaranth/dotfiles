@@ -49,16 +49,11 @@ if ! zplug check --verbose; then
 fi
 
 # Plugins Config
-if [ "$TERM_PROGRAM" != "Apple_Terminal" ] && [ "$TERM_PROGRAM" != "iTerm.app" ]; then
-  ZSH_TMUX_AUTOSTART=true
-fi
+ZSH_TMUX_AUTOSTART=true
 
 zplug load
 
 alias vim="nvim"
 alias cat="bat"
 eval "$(starship init zsh)"
-
-[ -f ~/.asdf/plugins/java/set-java-home.zsh ] && source ~/.asdf/plugins/java/set-java-home.zsh
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
