@@ -11,7 +11,7 @@ HISTFILE="$HOME/.zsh_history"
 HISTSIZE=50000
 SAVEHIST=10000
 
-# Misc
+# Options
 setopt extended_history
 setopt hist_expire_dups_first
 setopt hist_ignore_all_dups
@@ -19,7 +19,6 @@ setopt hist_ignore_space
 setopt hist_verify
 setopt inc_append_history
 setopt share_history
-
 bindkey -e
 
 # Plugins
@@ -35,9 +34,7 @@ zplug 'plugins/fzf', from:oh-my-zsh
 zplug 'plugins/gcloud', from:oh-my-zsh
 zplug 'plugins/git', from:oh-my-zsh
 zplug 'plugins/kubectl', from:oh-my-zsh
-zplug 'plugins/pyenv', from:oh-my-zsh
 zplug 'plugins/tmux', from:oh-my-zsh
-zplug 'plugins/virtualenvwrapper', from:oh-my-zsh
 zplug 'zsh-users/zsh-autosuggestions'
 zplug 'zsh-users/zsh-syntax-highlighting', defer:2
 
@@ -48,12 +45,14 @@ if ! zplug check --verbose; then
     fi
 fi
 
-# Plugins Config
 ZSH_TMUX_AUTOSTART=true
 
 zplug load
 
+# Aliases
 alias vim="nvim"
 alias cat="bat"
-eval "$(starship init zsh)"
 
+# Misc
+eval "$(starship init zsh)"
+[ -d "~/.asdf/plugins/java" ] && source ~/.asdf/plugins/java/set-java-home.zsh
