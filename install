@@ -16,7 +16,7 @@ git pull origin master
 (cd $HOME/.dotfiles && brew bundle)
 
 # copy dotfiles to home
-declare -a FILES_TO_SYMLINK=$(find $HOME/.dotfiles -type f -maxdepth 1 -name ".*" -not -name .DS_Store -not -name .git -exec basename {} \;)
+declare -a FILES_TO_SYMLINK=$(find $HOME/.dotfiles -type f -maxdepth 1 -name ".*" -not -name init.lua -not -name .DS_Store -not -name .git -exec basename {} \;)
 
 for i in ${FILES_TO_SYMLINK[@]}; do
   sourceFile="$HOME/.dotfiles/$i"
@@ -25,10 +25,11 @@ for i in ${FILES_TO_SYMLINK[@]}; do
   echo "${sourceFile} → ${targetFile}"
 done
 
-# copy init.vim
+# copy init.lua
 mkdir -p ~/.config/nvim
-ln -fs ~/.dotfiles/init.vim ~/.config/nvim/init.vim
-echo "~/.dotfiles/init.vim → ~/.config/nvim/init.vim"
+ln -fs ~/.dotfiles/init.lua ~/.config/nvim/init.lua
+echo "~/.dotfiles/init.lua → ~/.config/nvim/init.lua"
+nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 
 # set zsh as default shell
 sudo sh -c "echo $(which zsh) >> /etc/shells"

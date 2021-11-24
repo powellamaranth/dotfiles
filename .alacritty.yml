@@ -87,6 +87,8 @@ key_bindings:
   - { key: Slash,     mods: Alt,       chars: "\x1b/"                       } # Alt + /
   - { key: RBracket,  mods: Alt,       chars: "\x1b]"                       } # Alt + ]
   - { key: LBracket,  mods: Alt,       chars: "\x1b["                       } # Alt + [
+  - { key: Return,    mods: Shift,     chars: "\x1b[13;2u"                  }
+  - { key: Return,    mods: Control,   chars: "\x1b[13;5u"                  }
   - { key: V,         mods: Command,   action: Paste                        }
   - { key: C,         mods: Command,   action: Copy                         }
   - { key: Q,         mods: Command,   action: Quit                         }
