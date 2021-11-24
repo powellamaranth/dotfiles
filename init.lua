@@ -150,7 +150,6 @@ require'packer'.startup({function(use)
 
     local servers = {
         gopls = {},
-        jdtls = {},
         jsonls = {},
         pyright = {},
         sumneko_lua = {

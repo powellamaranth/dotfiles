@@ -55,4 +55,4 @@ alias cat="bat"
 
 # Misc
 eval "$(starship init zsh)"
-[ -d "~/.asdf/plugins/java" ] && source ~/.asdf/plugins/java/set-java-home.zsh
+[ -d ~/.asdf/plugins/java ] && source ~/.asdf/plugins/java/set-java-home.zsh
