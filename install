@@ -26,6 +26,7 @@ for i in ${FILES_TO_SYMLINK[@]}; do
 done
 
 # copy init.lua
+brew install nvim
 mkdir -p ~/.config/nvim
 ln -fs ~/.dotfiles/init.lua ~/.config/nvim/init.lua
 echo "~/.dotfiles/init.lua → ~/.config/nvim/init.lua"
