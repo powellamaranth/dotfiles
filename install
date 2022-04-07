@@ -3,6 +3,10 @@
 # Might as well ask for password up-front, right?
 sudo -v
 
+# https for git
+git config --global url."https://github.com/".insteadOf git@github.com:
+git config --global url."https://".insteadOf git://
+
 # Keep-alive: update existing sudo time stamp if set, otherwise do nothing.
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
@@ -34,3 +38,7 @@ sudo sh -c "echo $(which zsh) >> /etc/shells"
 chsh -s $(which zsh)
 zsh
 source ~/.zshrc
+
+# revert git to default
+git config --global --unset-all url.https://github.com/.insteadof
+git config --global --unset-all url.https://.insteadof
