@@ -13,7 +13,7 @@ git pull origin master
 
 # install homewbrew and bundle
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
-(cd $HOME/.dotfiles && brew bundle --force cleanup)
+(cd $HOME/.dotfiles && brew bundle --force)
 
 # copy dotfiles to home
 declare -a FILES_TO_SYMLINK=$(find $HOME/.dotfiles -type f -maxdepth 1 -name ".*" -not -name init.lua -not -name .DS_Store -not -name .git -exec basename {} \;)
