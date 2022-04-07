@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -x
 
 # Might as well ask for password up-front, right?
 sudo -v
