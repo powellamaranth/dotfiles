@@ -22,6 +22,7 @@ setopt share_history
 bindkey -e
 
 # Plugins
+export ZPLUG_PROTOCOL=ssh
 export ZPLUG_HOME=/usr/local/opt/zplug
 source $ZPLUG_HOME/init.zsh
 
