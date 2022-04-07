@@ -15,7 +15,7 @@ rm -fr $HOME/.dotfiles
 git clone "https://github.com/danielgatis/dotfiles.git" "$HOME/.dotfiles"
 
 # install homewbrew and bundle
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 (cd $HOME/.dotfiles && brew bundle --force)
 
 # copy dotfiles to home
