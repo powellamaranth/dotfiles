@@ -40,6 +40,7 @@ zsh
 
 # install zplug plugins
 source $HOME/.zshrc
+zplug install
 
 # install nvim plugins
 nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
