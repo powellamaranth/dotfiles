@@ -25,9 +25,9 @@ for i in ${FILES_TO_SYMLINK[@]}; do
 done
 
 # copy init.lua
-mkdir -p ~/.config/nvim
-ln -fs ~/.dotfiles/init.lua ~/.config/nvim/init.lua
-echo "~/.dotfiles/init.lua → ~/.config/nvim/init.lua"
+mkdir -p $HOME/.config/nvim
+ln -fs $HOME/.dotfiles/init.lua $HOME/.config/nvim/init.lua
+echo "$HOME/.dotfiles/init.lua → $HOME/.config/nvim/init.lua"
 
 # install homewbrew and bundle
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -39,7 +39,7 @@ chsh -s $(which zsh)
 zsh
 
 # install zplug plugins
-source ~/.zshrc
+source $HOME/.zshrc
 
 # install nvim plugins
 nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
@@ -47,7 +47,7 @@ nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 # install tmux plugins
 tmux start-server
 tmux new-session -d
-~/.tmux/plugins/tpm/scripts/install_plugins.sh
+$HOME/.tmux/plugins/tpm/scripts/install_plugins.sh
 tmux kill-server
 
 # revert git to default
