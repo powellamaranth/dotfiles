@@ -40,7 +40,7 @@ zplug 'zsh-users/zsh-syntax-highlighting', defer:2
 if ! zplug check --verbose; then
     printf "Install? [y/N]: "
     if read -q; then
-        echo; zplug install
+        echo; ZPLUG_PIPE_FIX=true zplug install
     fi
 fi
 
