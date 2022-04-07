@@ -58,7 +58,6 @@ zplug load
 
 # Aliases
 alias vim="nvim"
-alias cat="bat"
 
 # Misc
 eval "$(starship init zsh)"
