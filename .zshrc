@@ -22,8 +22,7 @@ setopt share_history
 bindkey -e
 
 # Plugins
-[ ! -d ~/.zplug ] && curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
-export ZPLUG_HOME=$HOME/.zplug
+export ZPLUG_HOME=#{opt_prefix}
 source $ZPLUG_HOME/init.zsh
 
 zplug 'djui/alias-tips'
