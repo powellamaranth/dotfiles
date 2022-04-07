@@ -14,10 +14,6 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 rm -fr $HOME/.dotfiles
 git clone "https://github.com/danielgatis/dotfiles.git" "$HOME/.dotfiles"
 
-# install homewbrew and bundle
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-brew bundle --global --force --no-lock || true
-
 # copy dotfiles to home
 declare -a FILES_TO_SYMLINK=$(find $HOME/.dotfiles -type f -maxdepth 1 -name ".*" -not -name init.lua -not -name .DS_Store -not -name .git -exec basename {} \;)
 
@@ -27,6 +23,10 @@ for i in ${FILES_TO_SYMLINK[@]}; do
   ln -fs $sourceFile $targetFile
   echo "${sourceFile} → ${targetFile}"
 done
+
+# install homewbrew and bundle
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+brew bundle --global --force --no-lock || true
 
 # copy init.lua
 mkdir -p ~/.config/nvim
