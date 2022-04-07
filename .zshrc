@@ -53,8 +53,11 @@ zplug 'zsh-users/zsh-syntax-highlighting', defer:2
 
 ZSH_TMUX_AUTOSTART=true
 
-zplug install
-zplug load
+if ! zplug check --verbose; then
+  zplug install
+fi
+
+zplug load --verbose
 
 # Aliases
 alias vim="nvim"
