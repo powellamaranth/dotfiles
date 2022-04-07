@@ -26,7 +26,7 @@ brew "watch"
 brew "zsh"
 brew "zplug"
 
-cask_args require_sha: true force: true
+cask_args require_sha: true, force: true
 
 cask "alacritty"
 cask "visual-studio-code"
