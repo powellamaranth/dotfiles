@@ -37,7 +37,12 @@ echo "~/.dotfiles/init.lua → ~/.config/nvim/init.lua"
 sudo sh -c "echo $(which zsh) >> /etc/shells"
 chsh -s $(which zsh)
 zsh
+
+# install zplug plugins
 source ~/.zshrc
+
+# install nvim plugins
+nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 
 # install tmux plugins
 tmux start-server
