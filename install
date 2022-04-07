@@ -23,14 +23,6 @@ echo "$HOME/.dotfiles/init.lua → $HOME/.config/nvim/init.lua"
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 brew bundle --global --force --no-lock || true
 
-# set zsh as default shell
-sudo sh -c "echo $(which zsh) >> /etc/shells"
-chsh -s $(which zsh)
-zsh
-
-# install zplug plugins
-source $HOME/.zshrc
-
 # install nvim plugins
 nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 
@@ -40,3 +32,8 @@ tmux new-session -d
 tmux source ~/.tmux.conf
 $HOME/.tmux/plugins/tpm/scripts/install_plugins.sh
 tmux kill-server
+
+# set zsh as default shell
+sudo sh -c "echo $(which zsh) >> /etc/shells"
+chsh -s $(which zsh)
+zsh
