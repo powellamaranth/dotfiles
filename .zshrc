@@ -39,6 +39,7 @@ zplug 'zsh-users/zsh-syntax-highlighting', defer:2
 
 ZSH_TMUX_AUTOSTART=true
 
+zplug install
 zplug load
 
 # Aliases
