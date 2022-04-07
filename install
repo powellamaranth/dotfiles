@@ -24,14 +24,14 @@ for i in ${FILES_TO_SYMLINK[@]}; do
   echo "${sourceFile} → ${targetFile}"
 done
 
-# install homewbrew and bundle
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-brew bundle --global --force --no-lock || true
-
 # copy init.lua
 mkdir -p ~/.config/nvim
 ln -fs ~/.dotfiles/init.lua ~/.config/nvim/init.lua
 echo "~/.dotfiles/init.lua → ~/.config/nvim/init.lua"
+
+# install homewbrew and bundle
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+brew bundle --global --force --no-lock || true
 
 # set zsh as default shell
 sudo sh -c "echo $(which zsh) >> /etc/shells"
