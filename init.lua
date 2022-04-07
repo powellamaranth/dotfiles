@@ -80,7 +80,6 @@ require'packer'.startup({function(use)
         }
 
         vim.g.nvim_tree_indent_markers = 0
-        vim.g.nvim_tree_gitignore = 0
         vim.g.nvim_tree_highlight_opened_files = 2
         vim.g.nvim_tree_show_icons = { git = 0, files = 1, folders = 1, folder_arrows = 1 }
 
