@@ -4,7 +4,6 @@ export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 export PATH=$HOME/bin:$PATH
 export BAT_THEME="Dracula"
-export ZPLUG_PIPE_FIX=true
 export ZPLUG_PROTOCOL=ssh
 export ZPLUG_HOME=/usr/local/opt/zplug
 
