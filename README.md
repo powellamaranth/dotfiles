@@ -6,4 +6,4 @@ These are my dotfiles!
 
 Run in your home folder
 
-    $ curl -L https://raw.githubusercontent.com/danielgatis/dotfiles/master/install | bash
+    $ curl -H 'Pragma: no-cache' -L https://raw.githubusercontent.com/danielgatis/dotfiles/master/install | bash
