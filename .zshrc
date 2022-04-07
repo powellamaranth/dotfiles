@@ -37,13 +37,6 @@ zplug 'plugins/tmux', from:oh-my-zsh
 zplug 'zsh-users/zsh-autosuggestions'
 zplug 'zsh-users/zsh-syntax-highlighting', defer:2
 
-if ! zplug check --verbose; then
-    printf "Install? [y/N]: "
-    if read -q; then
-        echo; ZPLUG_PIPE_FIX=true zplug install
-    fi
-fi
-
 ZSH_TMUX_AUTOSTART=true
 
 zplug load
