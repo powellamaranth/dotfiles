@@ -34,3 +34,4 @@ echo "~/.dotfiles/init.lua → ~/.config/nvim/init.lua"
 sudo sh -c "echo $(which zsh) >> /etc/shells"
 chsh -s $(which zsh)
 zsh
+source ~/.zshrc
