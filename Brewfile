@@ -24,6 +24,7 @@ brew "tmux"
 brew "universal-ctags/universal-ctags/universal-ctags", args: ["HEAD"]
 brew "watch"
 brew "zsh"
+brew "zplug"
 
 cask "alacritty"
 cask "visual-studio-code"
