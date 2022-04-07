@@ -15,7 +15,7 @@ brew "direnv"
 brew "fzf"
 brew "gpg"
 brew "htop"
-brew "nvim", args: ["HEAD"]
+brew "nvim"
 brew "reattach-to-user-namespace"
 brew "starship"
 brew "the_silver_searcher"
