@@ -1,20 +1,5 @@
 #!/usr/bin/env bash
 
-startsudo() {
-  sudo -v
-  ( while true; do sudo -v; sleep 50; done; ) &
-  SUDO_PID="$!"
-  trap stopsudo SIGINT SIGTERM
-}
-
-stopsudo() {
-  kill "$SUDO_PID"
-  trap - SIGINT SIGTERM
-  sudo -k
-}
-
-startsudo
-
 # checkout
 rm -fr $HOME/.dotfiles
 git clone "https://github.com/danielgatis/dotfiles.git" "$HOME/.dotfiles"
@@ -54,5 +39,3 @@ tmux start-server
 tmux new-session -d
 $HOME/.tmux/plugins/tpm/scripts/install_plugins.sh
 tmux kill-server
-
-stopsudo
