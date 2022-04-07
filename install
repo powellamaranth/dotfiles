@@ -37,5 +37,6 @@ nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 # install tmux plugins
 tmux start-server
 tmux new-session -d
+tmux source ~/.tmux.conf
 $HOME/.tmux/plugins/tpm/scripts/install_plugins.sh
 tmux kill-server
