@@ -3,7 +3,6 @@
 # install asdf
 rm -fr $HOME/.asdf
 git clone https://github.com/asdf-vm/asdf.git $HOME/.asdf --branch v0.9.0
-source $HOME/.asdf/asdf.sh
 
 # checkout
 rm -fr $HOME/.dotfiles
