@@ -29,6 +29,7 @@ echo "$HOME/.dotfiles/init.lua → $HOME/.config/nvim/init.lua"
 brew bundle --global --force --no-lock || true
 
 # install nvim plugins
+rm -fr $HOME/.config/nvim/plugin/packer_compiled.lua
 nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 
 # install tmux plugins
