@@ -40,7 +40,6 @@ source $ZPLUG_HOME/init.zsh
 
 zplug 'djui/alias-tips'
 zplug 'dracula/zsh', as:theme
-zplug 'plugins/asdf', from:oh-my-zsh
 zplug 'plugins/direnv', from:oh-my-zsh
 zplug 'plugins/fzf', from:oh-my-zsh
 zplug 'plugins/gcloud', from:oh-my-zsh
@@ -63,4 +62,13 @@ alias vim="nvim"
 
 # Misc
 eval "$(starship init zsh)"
+
+# ASDF
+source $HOME/.asdf/asdf.sh
+
+# append completions to fpath
+fpath=(${ASDF_DIR}/completions $fpath)
+# initialise completions with ZSH's compinit
+autoload -Uz compinit && compinit
+
 [ -d ~/.asdf/plugins/java ] && source ~/.asdf/plugins/java/set-java-home.zsh
