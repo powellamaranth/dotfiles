@@ -4,7 +4,6 @@
 rm -fr $HOME/.asdf
 git clone https://github.com/asdf-vm/asdf.git $HOME/.asdf --branch v0.9.0
 source $HOME/.asdf/asdf.sh
-source $HOME/.asdf/completions/asdf.bash
 
 asdf plugin-add direnv
 asdf direnv setup --shell bash --version latest
