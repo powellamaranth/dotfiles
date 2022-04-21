@@ -9,10 +9,6 @@ window:
 scrolling:
   history: 99999
 
-bell:
-  animation: EaseOutExpo
-  duration: 100
-
 mouse:
   selection:
     save_to_clipboard: true
