@@ -45,14 +45,11 @@ zplug 'plugins/fzf', from:oh-my-zsh
 zplug 'plugins/gcloud', from:oh-my-zsh
 zplug 'plugins/git', from:oh-my-zsh
 zplug 'plugins/kubectl', from:oh-my-zsh
-zplug 'plugins/tmux', from:oh-my-zsh
 zplug 'zsh-users/zsh-autosuggestions'
 zplug 'zsh-users/zsh-syntax-highlighting', defer:2
 
-ZSH_TMUX_AUTOSTART=true
-
 if ! zplug check; then
-    zplug install
+  zplug install
 fi
 
 zplug load

@@ -30,9 +30,3 @@ brew bundle --global --force --no-lock || true
 # install nvim plugins
 rm -fr $HOME/.config/nvim/plugin/packer_compiled.lua
 nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
-
-# install tmux plugins
-tmux start-server
-tmux new-session -d
-tmux source ~/.tmux.conf
-$HOME/.tmux/plugins/tpm/scripts/install_plugins.sh
