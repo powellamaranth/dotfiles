@@ -1,6 +1,0 @@
-[user]
-	name = Daniel Gatis
-	email = danielgatis@gmail.com
-[core]
-	pager = diff-so-fancy | less --tabs=2 -RFX
-	excludesfile = ~/.gitignore

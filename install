@@ -8,20 +8,20 @@ git clone https://github.com/asdf-vm/asdf.git $HOME/.asdf --branch v0.9.0
 rm -fr $HOME/.dotfiles
 git clone "https://github.com/danielgatis/dotfiles.git" "$HOME/.dotfiles"
 
-# copy dotfiles to home
-declare -a FILES_TO_SYMLINK=$(find $HOME/.dotfiles -type f -maxdepth 1 -name ".*" -not -name init.lua -not -name .DS_Store -not -name .git -exec basename {} \;)
+# link dotfiles to home
+ln -fs $HOME/.dotfiles/home/.alacritty.yml $HOME/.alacritty.yml
+ln -fs $HOME/.dotfiles/home/.asdfrc $HOME/.asdfrc
+ln -fs $HOME/.dotfiles/home/.Brewfile $HOME/.Brewfile
+ln -fs $HOME/.dotfiles/home/.editorconfig $HOME/.editorconfig
+ln -fs $HOME/.dotfiles/home/.gitconfig $HOME/.gitconfig
+ln -fs $HOME/.dotfiles/home/.gitignore $HOME/.gitignore
+ln -fs $HOME/.dotfiles/home/.zshrc $HOME/.zshrc
 
-for i in ${FILES_TO_SYMLINK[@]}; do
-  sourceFile="$HOME/.dotfiles/$i"
-  targetFile="$HOME/$(printf "%s" "$i" | sed "s/.*\/\(.*\)/\1/g")"
-  ln -fs $sourceFile $targetFile
-  echo "${sourceFile} → ${targetFile}"
-done
+mkdir -p $HOME/.dotfiles/home/.config/hammerspoon
+ln -fs $HOME/.dotfiles/home/.config/hammerspoon/init.lua $HOME/.config/hammerspoon/init.lua
 
-# copy init.lua
-mkdir -p $HOME/.config/nvim
-ln -fs $HOME/.dotfiles/init.lua $HOME/.config/nvim/init.lua
-echo "$HOME/.dotfiles/init.lua → $HOME/.config/nvim/init.lua"
+mkdir -p $HOME/.dotfiles/home/.config/nvim
+ln -fs $HOME/.dotfiles/home/.config/nvim/init.lua $HOME/.config/nvim/init.lua
 
 # install homewbrew and bundle
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
