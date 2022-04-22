@@ -16,6 +16,7 @@ ln -fs $HOME/.dotfiles/home/.editorconfig $HOME/.editorconfig
 ln -fs $HOME/.dotfiles/home/.gitconfig $HOME/.gitconfig
 ln -fs $HOME/.dotfiles/home/.gitignore $HOME/.gitignore
 ln -fs $HOME/.dotfiles/home/.zshrc $HOME/.zshrc
+ln -fs $HOME/.dotfiles/home/.config/.starship.toml $HOME/.config/.starship.toml
 
 mkdir -p $HOME/.dotfiles/home/.config/hammerspoon
 ln -fs $HOME/.dotfiles/home/.config/hammerspoon/init.lua $HOME/.config/hammerspoon/init.lua
