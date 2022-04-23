@@ -1,12 +1,5 @@
 [user]
 	name = Daniel Gatis
 	email = danielgatis@gmail.com
-[core]
-	pager = diff-so-fancy | less --tabs=2 -RFX
-	excludesfile = ~/.gitignore
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
-[mergetool "sourcetree"]
-	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
+[diff]
+	external = difft
