@@ -1,6 +1,5 @@
--- Hot reload config
-hs.pathwatcher.new(os.getenv('HOME') .. '/.hammerspoon/', hs.reload):start()
-hs.alert('🔨🥄')
+hs.loadSpoon("ReloadConfiguration")
+spoon.ReloadConfiguration:start()
 
 -- Spaces hotkeys
 function set_spaces_hotkeys()

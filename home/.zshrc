@@ -38,6 +38,7 @@ bindkey -e
 # Plugins
 source $ZPLUG_HOME/init.zsh
 
+zplug 'agkozak/zsh-z'
 zplug 'djui/alias-tips'
 zplug 'dracula/zsh', as:theme
 zplug 'plugins/direnv', from:oh-my-zsh

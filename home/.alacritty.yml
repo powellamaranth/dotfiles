@@ -3,8 +3,8 @@ live_config_reload: true
 window:
   decorations: Buttonless
   padding:
-    x: 10
-    y: 10
+    x: 15
+    y: 15
 
 scrolling:
   history: 99999

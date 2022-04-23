@@ -17,12 +17,10 @@ ln -fs $HOME/.dotfiles/home/.gitconfig $HOME/.gitconfig
 ln -fs $HOME/.dotfiles/home/.gitignore $HOME/.gitignore
 ln -fs $HOME/.dotfiles/home/.zshrc $HOME/.zshrc
 ln -fs $HOME/.dotfiles/home/.config/.starship.toml $HOME/.config/.starship.toml
-
-mkdir -p $HOME/.dotfiles/home/.config/hammerspoon
-ln -fs $HOME/.dotfiles/home/.config/hammerspoon/init.lua $HOME/.config/hammerspoon/init.lua
+ln -fs $HOME/.dotfiles/home/.hammerspoon $HOME/.hammerspoon
 
 mkdir -p $HOME/.dotfiles/home/.config/nvim
-ln -fs $HOME/.dotfiles/home/.config/nvim/init.lua $HOME/.config/nvim/init.lua
+ln -fs $HOME/.dotfiles/home/.config/nvim $HOME/.config/nvim
 
 # install homewbrew and bundle
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
