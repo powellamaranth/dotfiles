@@ -20,7 +20,6 @@ bootstrap.load_plugins({
   "web_devicons",
   "lualine",
   "telescope",
-  "telescope_fzf_native",
   "tree",
   "bufferline",
 })
