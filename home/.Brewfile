@@ -22,6 +22,7 @@ brew "zsh"
 cask_args require_sha: true, force: true
 
 cask "alacritty"
+cask "amethyst"
 cask "authy"
 cask "cakebrew"
 cask "docker"
