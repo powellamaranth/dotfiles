@@ -1,17 +1,28 @@
-local fn = vim.fn
-local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
-if fn.empty(fn.glob(install_path)) > 0 then
-  packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
-end
+local bootstrap = require("bootstrap")
 
-require'packer'.startup(function(use)
-  use { 'wbthomason/packer.nvim' }
-  use { 'dracula/vim' }
+bootstrap.install_packer()
+bootstrap.disable_builtins()
 
-  if packer_bootstrap then
-    require'packer'.sync()
-  end
-end)
+bootstrap.load_core({
+  "options",
+  "autocmds",
+  "mappings",
+})
 
-vim.o.termguicolors = true
-vim.cmd'colorscheme dracula'
+bootstrap.load_plugins({
+  "impatient",
+  "packer",
+  "plenary",
+  "dracula",
+  "nvim_notify",
+  "neoscroll",
+  "better_escape",
+  "web_devicons",
+  "lualine",
+  "telescope",
+  "telescope_fzf_native",
+  "tree",
+  "bufferline",
+})
+
+bootstrap.load_custom_init()

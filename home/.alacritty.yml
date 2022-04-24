@@ -19,6 +19,7 @@ font:
     family: FiraCode Nerd Font
 
 key_bindings:
+  - { key: N,          mods: Command,          action: CreateNewWindow                       }
   - { key: V,          mods: Control|Shift,    action: Paste                                 }
   - { key: C,          mods: Control|Shift,    action: Copy                                  }
   - { key: Q,          mods: Command,          action: Quit                                  }
