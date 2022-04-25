@@ -6,7 +6,6 @@ export PATH="/usr/local/sbin:$HOME/bin:$PATH"
 export BAT_THEME="Dracula"
 export ZPLUG_PROTOCOL=ssh
 export ZPLUG_HOME=/usr/local/opt/zplug
-export TERM=xterm-256color
 
 # History
 HISTFILE="$HOME/.zsh_history"
