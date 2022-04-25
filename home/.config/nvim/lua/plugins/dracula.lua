@@ -1,5 +1,4 @@
 local function config()
-  vim.o.termguicolors = true
   vim.cmd([[colorscheme dracula]])
 end
 

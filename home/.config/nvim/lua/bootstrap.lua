@@ -42,6 +42,8 @@ function M.load_plugins(modules)
 
   packer.startup({
     function(use)
+      use({ "wbthomason/packer.nvim" })
+
       for _, module in ipairs(modules) do
         use(require("plugins." .. module))
       end

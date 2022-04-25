@@ -10,6 +10,7 @@ return {
   module = "telescope",
   config = config,
   requires = {
-    { "nvim-telescope/telescope-fzf-native.nvim", run = "make"}
+    { "nvim-lua/plenary.nvim" },
+    { "nvim-telescope/telescope-fzf-native.nvim", run = "make"},
   },
 }

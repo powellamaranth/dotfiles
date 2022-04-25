@@ -1,5 +1,6 @@
 local function config()
-  require("impatient").enable_profile()
+  local impatient = require("impatient")
+  impatient.enable_profile()
 end
 
 return {

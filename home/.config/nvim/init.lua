@@ -11,13 +11,10 @@ bootstrap.load_core({
 
 bootstrap.load_plugins({
   "impatient",
-  "packer",
-  "plenary",
   "dracula",
   "nvim_notify",
   "neoscroll",
   "better_escape",
-  "web_devicons",
   "lualine",
   "telescope",
   "tree",
