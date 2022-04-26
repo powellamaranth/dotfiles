@@ -6,7 +6,7 @@ export PATH="/usr/local/sbin:$HOME/bin:$PATH"
 export BAT_THEME="Dracula"
 export ZPLUG_PROTOCOL=ssh
 export ZPLUG_HOME=/usr/local/opt/zplug
-export PYTHON_CONFIGURE_OPTS="--enable-framework --enable-shared"
+export PYTHON_CONFIGURE_OPTS="--enable-framework"
 
 # History
 HISTFILE="$HOME/.zsh_history"
