@@ -1,6 +1,10 @@
 local function config()
   local lualine = require("lualine")
-  lualine.setup({})
+  lualine.setup({
+    options = {
+      theme = 'tokyonight'
+    }
+  })
 end
 
 return {

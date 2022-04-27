@@ -1,6 +1,13 @@
 local function config()
   local bufferline = require("bufferline")
-  bufferline.setup({})
+
+  bufferline.setup({
+    options = {
+      offsets = {
+        {filetype = "NvimTree", text = "", padding = 1 },
+      }
+    }
+  })
 end
 
 return {

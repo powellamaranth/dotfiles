@@ -56,10 +56,4 @@ function M.load_plugins(modules)
   })
 end
 
-function M.load_custom_init()
-  if vim.fn.filereadable(vim.fn.stdpath("config") .. "/lua/custom/init.lua") == 1 then
-    require("custom.init")
-  end
-end
-
 return M

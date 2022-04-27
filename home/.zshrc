@@ -3,7 +3,6 @@ export EDITOR=nvim
 export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 export PATH="/usr/local/sbin:$HOME/bin:$PATH"
-export BAT_THEME="Dracula"
 export ZPLUG_PROTOCOL=ssh
 export ZPLUG_HOME=/usr/local/opt/zplug
 export PYTHON_CONFIGURE_OPTS="--enable-framework"
@@ -41,7 +40,6 @@ source $ZPLUG_HOME/init.zsh
 
 zplug 'agkozak/zsh-z'
 zplug 'djui/alias-tips'
-zplug 'dracula/zsh', as:theme
 zplug 'plugins/direnv', from:oh-my-zsh
 zplug 'plugins/fzf', from:oh-my-zsh
 zplug 'plugins/gcloud', from:oh-my-zsh

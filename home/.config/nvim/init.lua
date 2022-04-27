@@ -11,7 +11,7 @@ bootstrap.load_core({
 
 bootstrap.load_plugins({
   "impatient",
-  "dracula",
+  "theme",
   "nvim_notify",
   "neoscroll",
   "better_escape",
@@ -20,5 +20,3 @@ bootstrap.load_plugins({
   "tree",
   "bufferline",
 })
-
-bootstrap.load_custom_init()
