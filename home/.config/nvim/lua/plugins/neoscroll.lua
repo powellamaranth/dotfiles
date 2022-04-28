@@ -1,6 +1,6 @@
 local function config()
   local neoscroll = require("neoscroll")
-  neoscroll.setup({})
+  neoscroll.setup()
 end
 
 return {

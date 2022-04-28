@@ -30,22 +30,22 @@ function M.disable_builtins()
   g.zipPlugin = false
 end
 
-function M.load_core(modules)
+function M.load_core()
+  local modules = vim.split(vim.fn.glob("~/.config/nvim/lua/core/*.lua"), "\n")
   for _, module in ipairs(modules) do
-    require("core." .. module)
+    require("core." .. module:match( "^.*/(.*).lua$" ))
   end
 end
 
-function M.load_plugins(modules)
+function M.load_plugins()
   local packer = require("packer")
   local packer_util = require("packer.util")
+  local modules = vim.split(vim.fn.glob("~/.config/nvim/lua/plugins/*.lua"), "\n")
 
   packer.startup({
     function(use)
-      use({ "wbthomason/packer.nvim" })
-
       for _, module in ipairs(modules) do
-        use(require("plugins." .. module))
+        use(require("plugins." .. module:match( "^.*/(.*).lua$" )))
       end
     end,
     config = {

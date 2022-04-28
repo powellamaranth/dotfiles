@@ -1,6 +1,6 @@
 local function config()
   local notify = require("notify")
-  notify.setup({})
+  notify.setup()
 end
 
 return {

@@ -1,6 +1,6 @@
 local function config()
   local tree = require("nvim-tree")
-  tree.setup({})
+  tree.setup()
 end
 
 return {
