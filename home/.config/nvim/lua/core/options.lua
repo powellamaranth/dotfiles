@@ -1,15 +1,6 @@
 local g = vim.g
 local o = vim.opt
 
--- Space as leader key
-g.mapleader = " "
-
--- Don't use filetype.vim
-g.did_load_filetypes = 0
-
--- Use filetype.lua
-g.do_filetype_lua = 1
-
 -- Disable making a backup file
 o.backup = false
 
@@ -25,9 +16,6 @@ o.completeopt = { "menuone", "noselect" }
 -- Show text normally
 o.conceallevel = 0
 
--- Highlight the text line of the cursor
-o.cursorline = true
-
 -- Enable the use of space in tab
 o.expandtab = true
 
@@ -35,7 +23,16 @@ o.expandtab = true
 o.fileencoding = "utf-8"
 
 -- Disable `~` on nonexistent lines
-o.fillchars = { eob = " " }
+o.fillchars = {
+  fold = "·",      -- MIDDLE DOT (U+00B7, UTF-8: C2 B7)
+  horiz = "━",     -- BOX DRAWINGS HEAVY HORIZONTAL (U+2501, UTF-8: E2 94 81)
+  horizdown = "┳", -- BOX DRAWINGS HEAVY DOWN AND HORIZONTAL (U+2533, UTF-8: E2 94 B3)
+  horizup = "┻",   -- BOX DRAWINGS HEAVY UP AND HORIZONTAL (U+253B, UTF-8: E2 94 BB)
+  vert = "┃",      -- BOX DRAWINGS HEAVY VERTICAL (U+2503, UTF-8: E2 94 83)
+  vertleft = "┫",  -- BOX DRAWINGS HEAVY VERTICAL AND LEFT (U+252B, UTF-8: E2 94 AB)
+  vertright = "┣", -- BOX DRAWINGS HEAVY VERTICAL AND RIGHT (U+2523, UTF-8: E2 94 A3)
+  verthoriz = "╋", -- BOX DRAWINGS HEAVY VERTICAL AND HORIZONTAL (U+254B, UTF-8: E2 95 8B)
+}
 
 -- Create folds manually
 o.foldmethod = "manual"
@@ -102,3 +99,36 @@ o.wrap = false
 
 -- Disable making a backup before overwriting a file
 o.writebackup = false
+
+-- Disable nvim intro
+o.shortmess:append "sI"
+
+-- Global status line
+o.laststatus = 3
+
+-- Space as leader key
+g.mapleader = " "
+
+-- Don't use filetype.vim
+g.did_load_filetypes = 0
+
+-- Use filetype.lua
+g.do_filetype_lua = 1
+
+-- Disable builtin plugins
+g.loaded_2html_plugin = true
+g.loaded_getscript = true
+g.loaded_getscriptPlugin = true
+g.loaded_gzip = true
+g.loaded_logipat = true
+g.loaded_netrwFileHandlers = true
+g.loaded_netrwPlugin = true
+g.loaded_netrwSettngs = true
+g.loaded_remote_plugins = true
+g.loaded_tar = true
+g.loaded_tarPlugin = true
+g.loaded_zip = true
+g.loaded_zipPlugin = true
+g.loaded_vimball = true
+g.loaded_vimballPlugin = true
+g.zipPlugin = true

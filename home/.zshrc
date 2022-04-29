@@ -6,6 +6,7 @@ export PATH="/usr/local/sbin:$HOME/bin:$PATH"
 export ZPLUG_PROTOCOL=ssh
 export ZPLUG_HOME=/usr/local/opt/zplug
 export PYTHON_CONFIGURE_OPTS="--enable-framework"
+export ZSH_TMUX_UNICODE=true
 
 # History
 HISTFILE="$HOME/.zsh_history"
@@ -45,6 +46,7 @@ zplug 'plugins/fzf', from:oh-my-zsh
 zplug 'plugins/gcloud', from:oh-my-zsh
 zplug 'plugins/git', from:oh-my-zsh
 zplug 'plugins/kubectl', from:oh-my-zsh
+zplug 'plugins/tmux', from:oh-my-zsh
 zplug 'zsh-users/zsh-autosuggestions'
 zplug 'zsh-users/zsh-syntax-highlighting', defer:2
 

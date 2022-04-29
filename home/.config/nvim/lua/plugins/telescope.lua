@@ -6,7 +6,7 @@ end
 
 return {
   "nvim-telescope/telescope.nvim",
-  cmd = "Telescope",
+  cmd = { "Telescope" },
   module = "telescope",
   config = config,
   requires = {

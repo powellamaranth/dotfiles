@@ -2,8 +2,10 @@ local function config()
   local lualine = require("lualine")
   lualine.setup({
     options = {
-      theme = 'tokyonight'
-    }
+      theme = "nightfox",
+      globalstatus = true,
+      disabled_filetypes = { "NvimTree", "packer" },
+    },
   })
 end
 
