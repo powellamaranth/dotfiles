@@ -1,0 +1,41 @@
+#!/usr/bin/env bash
+
+track() {
+  osascript -e "if application \"Spotify\" is running then
+    tell application \"Spotify\"
+      return $1 of current track as string
+    end tell
+  end if"
+}
+
+player() {
+  local s="if application \"Spotify\" is running then
+    tell application \"Spotify\"
+      return player state as string
+    end tell
+  end if"
+
+  local status=$(osascript -e "$s")
+
+  if [[ "$status" == "playing" ]]; then
+    echo "▶︎"
+  else
+    echo "❙❙"
+  fi
+}
+
+main() {
+  local status=$(player)
+  local track=$(track "name")
+  local artist=$(track "artist")
+
+  if [[ -n $artist ]]; then
+    artist="$artist: "
+  fi
+
+  if [[ -n $track ]]; then
+    echo "🎧 $status $artist$track"
+  fi
+}
+
+main

@@ -2,7 +2,7 @@ local function config()
   local bufferline = require("bufferline")
   bufferline.setup({
     options = {
-      indicator_icon = '',
+      indicator_icon = '❚',
       show_tab_indicators = true,
       always_show_bufferline = true,
       separator_style = "thick",

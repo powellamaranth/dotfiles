@@ -9,6 +9,8 @@ rm -fr $HOME/.dotfiles
 git clone "https://github.com/danielgatis/dotfiles.git" "$HOME/.dotfiles"
 
 # link dotfiles to home
+mkdir -p $HOME/.dotfiles/home/.config
+
 ln -fs $HOME/.dotfiles/home/.alacritty.yml $HOME/.alacritty.yml
 ln -fs $HOME/.dotfiles/home/.asdfrc $HOME/.asdfrc
 ln -fs $HOME/.dotfiles/home/.Brewfile $HOME/.Brewfile
@@ -17,11 +19,12 @@ ln -fs $HOME/.dotfiles/home/.gitconfig $HOME/.gitconfig
 ln -fs $HOME/.dotfiles/home/.gitignore $HOME/.gitignore
 ln -fs $HOME/.dotfiles/home/.zshrc $HOME/.zshrc
 ln -fs $HOME/.dotfiles/home/.tmux $HOME/.tmux
-ln -fs $HOME/.dotfiles/home/.config/.starship.toml $HOME/.config/.starship.toml
 ln -fs $HOME/.dotfiles/home/.hammerspoon $HOME/.hammerspoon
-
-mkdir -p $HOME/.dotfiles/home/.config/nvim
+ln -fs $HOME/.dotfiles/home/.config/.starship.toml $HOME/.config/.starship.toml
 ln -fs $HOME/.dotfiles/home/.config/nvim $HOME/.config/nvim
+ln -fs $HOME/.dotfiles/home/bin $HOME/bin
+
+chmod -R +X $HOME/bin
 
 # install homewbrew and bundle
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
