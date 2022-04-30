@@ -1,7 +1,8 @@
 # My dotfiles
 
-These are my dotfiles!
+![workstation](workstation.png)
 
+These are my dotfiles ;)
 ## Installation
 
 Run in your home folder
