@@ -53,7 +53,7 @@ o.mouse = "a"
 o.number = true
 
 -- Show relative numberline
-o.relativenumber = true
+-- o.relativenumber = true
 
 -- Number of space inserted for indentation
 o.shiftwidth = 2
@@ -105,9 +105,6 @@ o.shortmess:append "sI"
 
 -- Global status line
 o.laststatus = 3
-
--- Space as leader key
-g.mapleader = " "
 
 -- Don't use filetype.vim
 g.did_load_filetypes = 0

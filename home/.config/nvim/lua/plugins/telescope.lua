@@ -1,6 +1,7 @@
 local function config()
   local telescope = require("telescope")
   telescope.load_extension("fzf")
+  telescope.load_extension("notify")
   telescope.setup()
 end
 
