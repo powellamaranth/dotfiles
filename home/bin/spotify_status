@@ -20,7 +20,7 @@ player() {
   if [[ "$status" == "playing" ]]; then
     echo "▶︎"
   else
-    echo "❙❙"
+    echo "■"
   fi
 }
 
