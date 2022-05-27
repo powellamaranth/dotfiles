@@ -34,8 +34,10 @@ o.fillchars = {
   verthoriz = "╋", -- BOX DRAWINGS HEAVY VERTICAL AND HORIZONTAL (U+254B, UTF-8: E2 95 8B)
 }
 
--- Create folds manually
-o.foldmethod = "manual"
+-- Treesitter folding
+o.foldmethod = "expr"
+o.foldexpr = "nvim_treesitter#foldexpr()"
+o.foldlevelstart = 99
 
 -- Ignore unsaved buffers
 o.hidden = true

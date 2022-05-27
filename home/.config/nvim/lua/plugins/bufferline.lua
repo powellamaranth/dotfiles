@@ -1,6 +1,5 @@
 local function config()
-  local bufferline = require("bufferline")
-  bufferline.setup({
+  require"bufferline".setup{
     options = {
       indicator_icon = '❚',
       show_tab_indicators = true,
@@ -11,7 +10,7 @@ local function config()
         { filetype = "NvimTree", text = "" },
       }
     }
-  })
+  }
 end
 
 return {

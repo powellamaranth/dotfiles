@@ -1,8 +1,5 @@
 local function config()
-  local better_escape = require("better_escape")
-  better_escape.setup({
-    mapping = {"jk", "jj"},
-  })
+  require"better_escape".setup()
 end
 
 return {

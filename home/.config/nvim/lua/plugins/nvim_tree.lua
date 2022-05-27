@@ -1,11 +1,7 @@
 local function config()
-  local tree = require("nvim-tree")
-  local g = vim.g
-  local cmd = vim.cmd
+  vim.g.nvim_tree_root_folder_modifier = ":t"
 
-  g.nvim_tree_root_folder_modifier = ":t"
-
-  tree.setup({
+  require"nvim-tree".setup{
     open_on_setup = true,
     disable_netrw = true,
     hijack_netrw = true,
@@ -39,10 +35,10 @@ local function config()
         enable = true,
       },
     },
-  })
+  }
 
-  --auto close file exploer when quiting incase a single buffer is left
-  cmd([[ autocmd BufEnter * if (winnr("$") == 1 && &filetype == 'nvimtree') | q | endif ]])
+  -- auto close file exploer when quiting incase a single buffer is left
+  vim.cmd([[ autocmd BufEnter * if (winnr("$") == 1 && &filetype == 'nvimtree') | q | endif ]])
 end
 
 return {

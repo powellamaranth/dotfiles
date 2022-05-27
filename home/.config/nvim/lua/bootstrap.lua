@@ -1,44 +1,45 @@
 
 local M = {}
 
-local fn = vim.fn
-local g = vim.g
+function load_modules(name)
+  local modules = {}
 
-function M.load_core()
-  local modules = vim.split(vim.fn.glob("~/.config/nvim/lua/core/*.lua"), "\n")
-  for _, module in ipairs(modules) do
-    require("core." .. module:match( "^.*/(.*).lua$" ))
+  local files = vim.split(vim.fn.glob("~/.config/nvim/lua/" .. name .. "/*.lua"), "\n")
+  for _, file in ipairs(files) do
+    local module_name = name .. "." .. file:match("^.*/(.*).lua$")
+    modules[module_name] = require(module_name)
+  end
+
+  return modules
+end
+
+function M.load_packer()
+  local install_path = vim.fn.stdpath("data").."/site/pack/packer/start/packer.nvim"
+  if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
+    vim.fn.system({"git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path})
+    vim.cmd [[packadd packer.nvim]]
   end
 end
 
 function M.load_plugins()
-  local packer_bootstrap = false
-  local install_path = fn.stdpath("data").."/site/pack/packer/start/packer.nvim"
-  if fn.empty(fn.glob(install_path)) > 0 then
-    packer_bootstrap = fn.system({"git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path})
-    vim.cmd [[packadd packer.nvim]]
-  end
+  require"packer".startup({function(use)
+    for plugin_name, _ in pairs(load_modules("plugins")) do
+      use(require(plugin_name))
+    end
+  end,
+  config = {
+    display = { non_interactive = true, }
+  }})
 
-  local packer = require("packer")
-  local packer_util = require("packer.util")
-  local modules = vim.split(vim.fn.glob("~/.config/nvim/lua/plugins/*.lua"), "\n")
+  return plugins
+end
 
-  packer.startup({
-    function(use)
-      for _, module in ipairs(modules) do
-        use(require("plugins." .. module:match( "^.*/(.*).lua$" )))
-      end
+function M.load_core()
+  return load_modules("core")
+end
 
-      if packer_bootstrap then
-        packer.sync()
-      end
-    end,
-    config = {
-      display = {
-        non_interactive = true,
-      },
-    },
-  })
+function M.load_langs()
+  return load_modules("langs")
 end
 
 return M

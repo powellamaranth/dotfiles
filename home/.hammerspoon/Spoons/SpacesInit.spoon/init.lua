@@ -8,7 +8,7 @@ function obj:start()
   local spaces = hs.spaces.allSpaces()
 
   for i = 1,9,1 do
-    if not spaces[screen_uuid][i] then
+    if spaces and not spaces[screen_uuid][i] then
       hs.spaces.addSpaceToScreen(screen_uuid)
     end
   end

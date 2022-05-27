@@ -1,8 +1,7 @@
 local function config()
-  local lualine = require("lualine")
-  lualine.setup({
+  require"lualine".setup({
     options = {
-      theme = "nightfox",
+      theme = "tokyonight",
       globalstatus = true,
     },
     sections = {
