@@ -1,5 +1,5 @@
 local function config()
-  require"nvim-autopairs".setup()
+  require("nvim-autopairs").setup({})
 end
 
 return {

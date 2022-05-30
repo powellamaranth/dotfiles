@@ -1,19 +1,15 @@
-local g = vim.g
 local keymap = vim.keymap.set
 local silent = { silent = true }
 
 -- Remap space as leader key
 keymap("", "<space>", "<nop>", silent)
-g.mapleader = " "
+vim.g.mapleader = " "
 
 -- NvimTree
 keymap("n", "<c-n>", "NvimTreeToggle", silent)
 
--- Folding
-keymap("n", "<cr>", "za", silent)
-
 -- Telescope
-keymap("n", "<c-s-p>", "<cmd>Telescope live_grep<cr>", silent)
+keymap("n", "<c-o>", "<cmd>Telescope live_grep<cr>", silent)
 keymap("n", "<c-p>", "<cmd>Telescope find_files<cr>", silent)
 
 -- TmuxNavigator

@@ -1,15 +1,15 @@
 local M = {}
 
 function M.treesitter()
-    return {
-      name = 'html'
-    }
+  return {
+    name = "html",
+  }
 end
 
 function M.lsp()
   return {
-    name = 'html',
-    setup = {}
+    name = "html",
+    opts = {},
   }
 end
 

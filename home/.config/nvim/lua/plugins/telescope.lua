@@ -1,17 +1,14 @@
 local function config()
-  local telescope = require("telescope")
-  telescope.load_extension("fzf")
-  telescope.load_extension("notify")
-  telescope.setup()
+  require("telescope").load_extension("fzf")
+  require("telescope").load_extension("notify")
+  require("telescope").setup({})
 end
 
 return {
   "nvim-telescope/telescope.nvim",
-  cmd = { "Telescope" },
-  module = "telescope",
   config = config,
   requires = {
     { "nvim-lua/plenary.nvim" },
-    { "nvim-telescope/telescope-fzf-native.nvim", run = "make"},
+    { "nvim-telescope/telescope-fzf-native.nvim", run = "make" },
   },
 }

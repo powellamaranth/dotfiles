@@ -1,7 +1,6 @@
-
 local M = {}
 
-function load_modules(name)
+local function load_modules(name)
   local modules = {}
 
   local files = vim.split(vim.fn.glob("~/.config/nvim/lua/" .. name .. "/*.lua"), "\n")
@@ -14,22 +13,21 @@ function load_modules(name)
 end
 
 function M.load_packer()
-  local install_path = vim.fn.stdpath("data").."/site/pack/packer/start/packer.nvim"
+  local install_path = vim.fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
   if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
-    vim.fn.system({"git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path})
-    vim.cmd [[packadd packer.nvim]]
+    vim.fn.system({ "git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path })
+    vim.cmd([[packadd packer.nvim]])
   end
 end
 
 function M.load_plugins()
-  require"packer".startup({function(use)
-    for plugin_name, _ in pairs(load_modules("plugins")) do
+  local plugins = load_modules("plugins")
+
+  require("packer").startup(function(use)
+    for plugin_name, _ in pairs(plugins) do
       use(require(plugin_name))
     end
-  end,
-  config = {
-    display = { non_interactive = true, }
-  }})
+  end)
 
   return plugins
 end

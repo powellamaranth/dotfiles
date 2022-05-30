@@ -1,15 +1,15 @@
 local M = {}
 
 function M.treesitter()
-    return {
-      name = 'javascript'
-    }
+  return {
+    name = "javascript",
+  }
 end
 
 function M.lsp()
   return {
-    name = 'tsserver',
-    setup = {}
+    name = "tsserver",
+    opts = {},
   }
 end
 

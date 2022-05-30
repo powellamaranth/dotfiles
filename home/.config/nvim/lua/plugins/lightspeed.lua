@@ -1,5 +1,5 @@
 local function config()
-  require"lightspeed".setup{}
+  require("lightspeed").setup({})
 end
 
 return {

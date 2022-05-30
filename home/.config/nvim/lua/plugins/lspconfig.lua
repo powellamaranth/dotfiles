@@ -1,25 +1,34 @@
 local function config()
-  local langs = require"bootstrap".load_langs()
+  local langs = require("bootstrap").load_langs()
 
-  require"nvim-lsp-installer".setup{
+  local get_server_name = function(lang)
+    return lang.lsp().name
+  end
+
+  require("nvim-lsp-installer").setup({
+    ensure_installed = vim.tbl_values(vim.tbl_map(get_server_name, langs)),
     automatic_installation = true,
-    ui = {
-      icons = {
-        server_installed = "✓",
-        server_pending = "➜",
-        server_uninstalled = "✗",
-      },
-    },
-  }
+  })
+
+  local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
+  local on_attach = function(_client, _bufnr) end
+  local handlers = {}
 
   for _, lang in pairs(langs) do
     local server = lang.lsp()
-    require"lspconfig"[server.name].setup(server.setup)
+
+    require("lspconfig")[server.name].setup(vim.tbl_deep_extend("force", {
+      capabilities = capabilities,
+      on_attach = on_attach,
+      handlers = handlers,
+    }, server.opts))
   end
 end
 
 return {
-  "williamboman/nvim-lsp-installer",
   "neovim/nvim-lspconfig",
-  config = config
+  config = config,
+  requires = {
+    { "williamboman/nvim-lsp-installer" },
+  },
 }
