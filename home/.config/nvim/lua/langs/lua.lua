@@ -9,7 +9,15 @@ end
 function M.lsp()
   return {
     name = "sumneko_lua",
-    opts = {},
+    opts = {
+      settings = {
+        Lua = {
+          diagnostics = {
+            globals = { "vim" },
+          },
+        },
+      },
+    },
   }
 end
 

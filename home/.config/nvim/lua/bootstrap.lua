@@ -24,6 +24,11 @@ function M.load_plugins()
   local plugins = load_modules("plugins")
 
   require("packer").startup(function(use)
+    use({
+      "wbthomason/packer.nvim",
+      "lewis6991/impatient.nvim",
+    })
+
     for plugin_name, _ in pairs(plugins) do
       use(require(plugin_name))
     end

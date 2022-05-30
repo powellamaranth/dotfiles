@@ -2,10 +2,6 @@ local function config()
   local cmp = require("cmp")
 
   cmp.setup({
-    window = {
-      completion = cmp.config.window.bordered(),
-      documentation = cmp.config.window.bordered(),
-    },
     sources = cmp.config.sources({
       { name = "nvim_lua" },
       { name = "nvim_lsp" },
