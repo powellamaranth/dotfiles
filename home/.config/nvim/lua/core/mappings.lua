@@ -6,11 +6,11 @@ keymap("", "<space>", "<nop>", opts)
 vim.g.mapleader = " "
 
 -- NvimTree
-keymap("n", "<c-n>", "NvimTreeToggle", opts)
+keymap("n", "<leader>t", ":lua require'nvim-tree'.toggle(false,true)<cr>", opts)
 
 -- Telescope
-keymap("n", "<c-o>", "<cmd>Telescope live_grep<cr>", opts)
-keymap("n", "<c-p>", "<cmd>Telescope find_files<cr>", opts)
+keymap("n", "<leader>o", "<cmd>Telescope live_grep<cr>", opts)
+keymap("n", "<leader>p", "<cmd>Telescope find_files<cr>", opts)
 
 -- TmuxNavigator
 keymap("n", "<m-h>", ":lua require'nvim-tmux-navigation'.NvimTmuxNavigateLeft()<cr>", opts)

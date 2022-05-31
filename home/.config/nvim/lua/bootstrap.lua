@@ -23,14 +23,21 @@ end
 function M.load_plugins()
   local plugins = load_modules("plugins")
 
-  require("packer").startup(function(use)
-    use("wbthomason/packer.nvim")
-    use("lewis6991/impatient.nvim")
+  require("packer").startup({
+    function(use)
+      use("wbthomason/packer.nvim")
+      use("lewis6991/impatient.nvim")
 
-    for plugin_name, _ in pairs(plugins) do
-      use(require(plugin_name))
-    end
-  end)
+      for plugin_name, _ in pairs(plugins) do
+        use(require(plugin_name))
+      end
+    end,
+    config = {
+      display = {
+        open_fn = require("packer.util").float,
+      },
+    },
+  })
 
   return plugins
 end
