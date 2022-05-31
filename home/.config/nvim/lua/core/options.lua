@@ -31,6 +31,9 @@ vim.opt.fillchars = {
   verthoriz = "╋", -- BOX DRAWINGS HEAVY VERTICAL AND HORIZONTAL (U+254B, UTF-8: E2 95 8B)
 }
 
+-- Enable cursor line
+vim.opt.cursorline = true
+
 -- Treesitter folding
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
