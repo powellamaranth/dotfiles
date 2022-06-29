@@ -7,7 +7,7 @@ function obj:start()
   local screen_uuid = hs.screen.primaryScreen():getUUID()
   local spaces = hs.spaces.allSpaces()
 
-  for i = 1,9,1 do
+  for i = 1,4,1 do
     if spaces and not spaces[screen_uuid][i] then
       hs.spaces.addSpaceToScreen(screen_uuid)
     end

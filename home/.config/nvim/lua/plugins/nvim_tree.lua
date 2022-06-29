@@ -5,6 +5,11 @@ local function config()
       width = 25,
     },
   })
+
+  local keymap = vim.keymap.set
+  local opts = { noremap = true, silent = true }
+
+  keymap("n", "<leader>]", ":lua require'nvim-tree'.toggle(false,true)<cr>", opts)
 end
 
 return {
