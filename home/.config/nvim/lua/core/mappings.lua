@@ -1,4 +1,5 @@
 local keymap = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
-vim.g.mapleader = "\\"
+keymap("", "<space>", "<nop>", opts)
+vim.g.mapleader = " "

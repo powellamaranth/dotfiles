@@ -6,8 +6,8 @@ local function config()
   local keymap = vim.keymap.set
   local opts = { noremap = true, silent = true }
 
-  keymap("n", "<leader>o", "<cmd>Telescope live_grep<cr>", opts)
-  keymap("n", "<leader>p", "<cmd>Telescope find_files<cr>", opts)
+  keymap("n", "<m-s-p>", "<cmd>Telescope live_grep<cr>", opts)
+  keymap("n", "<m-p>", "<cmd>Telescope find_files<cr>", opts)
 end
 
 return {
