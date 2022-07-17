@@ -32,7 +32,7 @@ vim.opt.fillchars = {
 }
 
 -- Enable cursor line
-vim.opt.cursorline = true
+vim.opt.cursorline = false
 
 -- Treesitter folding
 vim.opt.foldmethod = "expr"
