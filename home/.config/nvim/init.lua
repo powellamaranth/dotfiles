@@ -1,46 +1,74 @@
 -- [[Bootstrapping]]
-  local ensure_packer = function()
-    local fn = vim.fn
-    local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
-    if fn.empty(fn.glob(install_path)) > 0 then
-      fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
-      vim.cmd [[packadd packer.nvim]]
-      return true
-    end
-    return false
+  local fn = vim.fn
+  local install_path = fn.stdpath("data").."/site/pack/packer/start/packer.nvim"
+  if fn.empty(fn.glob(install_path)) > 0 then
+    fn.system({"git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path})
+    vim.cmd [[packadd packer.nvim]]
   end
-
-  local packer_bootstrap = ensure_packer()
 -- [[]]
 
 -- [[Plugins]]
-  require('packer').startup(function(use)
-    use { 'akinsho/bufferline.nvim' }                          -- Top line
-    use { 'folke/tokyonight.nvim' }                            -- Theme
-    use { 'ggandor/lightspeed.nvim' }                          -- Moving around
-    use { 'gpanders/editorconfig.nvim' }                       -- Editor config plugin
-    use { 'hrsh7th/nvim-cmp' }                                 -- Auto completion
-    use { 'jdhao/better-escape.vim', event = 'InsertEnter' }   -- Exit insert mode
-    use { 'kyazdani42/nvim-tree.lua' }                         -- File explorer
-    use { 'kyazdani42/nvim-web-devicons' }                     -- Icons
-    use { 'neoclide/coc.nvim', branch = 'release' }            -- Lsp
-    use { 'numToStr/Comment.nvim' }                            -- Handle comments
-    use { 'nvim-lua/plenary.nvim' }                            -- Required by telescope
-    use { 'nvim-lualine/lualine.nvim' }                        -- Bottom line
-    use { 'nvim-telescope/telescope.nvim' }                    -- Fuzzy finder
-    use { 'nvim-treesitter/nvim-treesitter' }                  -- Syntax highlighting
-    use { 'rcarriga/nvim-notify' }                             -- Notifications
-    use { 'sitiom/nvim-numbertoggle' }                         -- Number toggle insert/normal mode
-    use { 'sunaku/tmux-navigate' }                             -- Tmux seamlessly navigation
-    use { 'tpope/vim-repeat' }                                 -- Repeat plugin
-    use { 'tpope/vim-surround' }                               -- Surround plugin
-    use { 'wbthomason/packer.nvim' }                           -- Packer
-    use { 'windwp/nvim-autopairs' }                            -- Auto close brackets
-
-    if packer_bootstrap then
-      require('packer').sync()
-    end
-  end)
+  local plugins = {
+    { "wbthomason/packer.nvim" },
+    { "numToStr/Comment.nvim" },
+    { "gpanders/editorconfig.nvim" },
+    { "sitiom/nvim-numbertoggle" },
+    { "sunaku/tmux-navigate" },
+    { "tpope/vim-surround" },
+    { "windwp/nvim-autopairs" },
+    { "max397574/better-escape.nvim" },
+    { "ggandor/lightspeed.nvim", requires = { { "tpope/vim-repeat" } } },
+    { "folke/tokyonight.nvim", config = function()
+      vim.g.tokyonight_sidebars = { "NvimTree" }
+      vim.cmd([[
+        colorscheme tokyonight-night
+        hi CursorLine gui=underline cterm=underline ctermbg=None guibg=None
+      ]])
+    end},
+    { "akinsho/bufferline.nvim", tag = "v2.*", config = function()
+      require("bufferline").setup({
+        options = {
+          diagnostics = "coc",
+          indicator = { style = 'icon', icon = '❚', },
+          offsets = {
+            { filetype = "NvimTree", text = "File Explorer", highlight = "Directory", separator = true },
+          },
+        },
+      })
+    end},
+    { "kyazdani42/nvim-tree.lua", requires = { { "kyazdani42/nvim-web-devicons" }, }, config = function()
+      require("nvim-tree").setup({
+        view = { side = "left", width = 25 },
+      })
+    end},
+    { "nvim-lualine/lualine.nvim", config = function()
+      require("lualine").setup({
+        options = { theme = "tokyonight", globalstatus = true },
+        extensions = { "quickfix", "nvim-tree" },
+      })
+    end},
+    { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate", config = function()
+      require("nvim-treesitter.configs").setup({
+        ensure_installed = "all",
+        highlight = { enable = true },
+        indent = { enable = true },
+        incremental_selection = { enable = true },
+      })
+    end},
+    { "hrsh7th/nvim-cmp" config = function()
+    end},
+    { "neoclide/coc.nvim", branch = "release", config = function()
+    end},
+    { "nvim-telescope/telescope.nvim",
+      requires = {
+        { "nvim-lua/plenary.nvim" },
+        { "rcarriga/nvim-notify" },
+        { "nvim-telescope/telescope-fzf-native.nvim", run = "make" },
+      }, config = function()
+        require("telescope").load_extension("fzf")
+        require("telescope").load_extension("notify")
+    end},
+  }
 -- [[]]
 
 -- [[Options]]
@@ -80,7 +108,7 @@
 -- [[]]
 
 -- [[Globals]]
-  vim.g.do_filetype_lua          = 1                                  -- Use filetype.lua
+  vim.g.do_filetype_lua          = 1                                  -- filetype.lua
   vim.g.loaded_2html_plugin      = true                               -- Disable built-in
   vim.g.loaded_getscript         = true                               -- Disable built-in
   vim.g.loaded_getscriptPlugin   = true                               -- Disable built-in
@@ -104,4 +132,12 @@
   local opts = { noremap = true, silent = true }
 
   keymap("", "<space>", "<nop>", opts)
+-- [[]]
+
+-- [[Packer startup]]
+  require("packer").startup(function(use)
+    for i = 1,#plugins do
+      use(plugins[i])
+    end
+  end)
 -- [[]]
