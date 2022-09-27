@@ -1,35 +1,14 @@
 #!/usr/bin/env bash
 
-# install asdf
-rm -fr $HOME/.asdf
-git clone https://github.com/asdf-vm/asdf.git $HOME/.asdf --branch v0.9.0
+pushd ~
+curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh
+brew install stow
+git clone git@github.com:danielgatis/dotfiles.git .dotfiles
 
-# checkout
-rm -fr $HOME/.dotfiles
-git clone "https://github.com/danielgatis/dotfiles.git" "$HOME/.dotfiles"
+pushd .dotfiles
+stow -v -R -t ~ home
+popd
 
-# link dotfiles to home
-mkdir -p $HOME/.dotfiles/home/.config
-
-ln -fs $HOME/.dotfiles/home/.alacritty.yml $HOME/.alacritty.yml
-ln -fs $HOME/.dotfiles/home/.asdfrc $HOME/.asdfrc
-ln -fs $HOME/.dotfiles/home/.Brewfile $HOME/.Brewfile
-ln -fs $HOME/.dotfiles/home/.editorconfig $HOME/.editorconfig
-ln -fs $HOME/.dotfiles/home/.gitconfig $HOME/.gitconfig
-ln -fs $HOME/.dotfiles/home/.gitignore $HOME/.gitignore
-ln -fs $HOME/.dotfiles/home/.zshrc $HOME/.zshrc
-ln -fs $HOME/.dotfiles/home/.tmux $HOME/.tmux
-ln -fs $HOME/.dotfiles/home/.hammerspoon $HOME/.hammerspoon
-ln -fs $HOME/.dotfiles/home/.config/.starship.toml $HOME/.config/.starship.toml
-ln -fs $HOME/.dotfiles/home/.config/nvim $HOME/.config/nvim
-ln -fs $HOME/.dotfiles/home/bin $HOME/bin
-
-chmod -R +X $HOME/bin
-
-# install homewbrew and bundle
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 brew bundle --global --force --no-lock || true
-
-# install nvim plugins
-rm -fr $HOME/.config/nvim/plugin/packer_compiled.lua
 nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
+popd
