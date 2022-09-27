@@ -26,18 +26,18 @@ key_bindings:
   - { key: N,          mods: Command,          action: CreateNewWindow                       }
   - { key: Q,          mods: Command,          action: Quit                                  }
   - { key: W,          mods: Command,          action: Quit                                  }
-  - { key: Space,      mods: Control,          chars: "\x00"                                 } # Ctrl + Space
-  - { key: Grave,      mods: Alt,              chars: "\x1b`"                                } # Alt + `
-  - { key: Grave,      mods: Alt|Shift,        chars: "\x1b~"                                } # Alt + ~
-  - { key: Period,     mods: Alt,              chars: "\x1b."                                } # Alt + .
-  - { key: Period,     mods: Alt|Shift,        chars: "\x1b>"                                } # Alt + >
-  - { key: Comma,      mods: Alt|Shift,        chars: "\x1b<"                                } # Alt + <
-  - { key: Minus,      mods: Alt|Shift,        chars: "\x1b_"                                } # Alt + _
-  - { key: Backslash,  mods: Alt,              chars: "\x1b\\"                               } # Alt + \
-  - { key: Backslash,  mods: Alt|Shift,        chars: "\x1b|"                                } # Alt + |
-  - { key: Slash,      mods: Alt,              chars: "\x1b/"                                } # Alt + /
-  - { key: RBracket,   mods: Alt,              chars: "\x1b]"                                } # Alt + ]
-  - { key: LBracket,   mods: Alt,              chars: "\x1b["                                } # Alt + [
+  - { key: Space,      mods: Control,          chars: "\x00"                                 }
+  - { key: Grave,      mods: Alt,              chars: "\x1b`"                                }
+  - { key: Grave,      mods: Alt|Shift,        chars: "\x1b~"                                }
+  - { key: Period,     mods: Alt,              chars: "\x1b."                                }
+  - { key: Period,     mods: Alt|Shift,        chars: "\x1b>"                                }
+  - { key: Comma,      mods: Alt|Shift,        chars: "\x1b<"                                }
+  - { key: Minus,      mods: Alt|Shift,        chars: "\x1b_"                                }
+  - { key: Backslash,  mods: Alt,              chars: "\x1b\\"                               }
+  - { key: Backslash,  mods: Alt|Shift,        chars: "\x1b|"                                }
+  - { key: Slash,      mods: Alt,              chars: "\x1b/"                                }
+  - { key: RBracket,   mods: Alt,              chars: "\x1b]"                                }
+  - { key: LBracket,   mods: Alt,              chars: "\x1b["                                }
   - { key: A,          mods: Alt,              chars: "\x1ba"                                }
   - { key: B,          mods: Alt,              chars: "\x1bb"                                }
   - { key: C,          mods: Alt,              chars: "\x1bc"                                }
@@ -54,6 +54,7 @@ key_bindings:
   - { key: N,          mods: Alt,              chars: "\x1bn"                                }
   - { key: O,          mods: Alt,              chars: "\x1bo"                                }
   - { key: P,          mods: Alt,              chars: "\x1bp"                                }
+  - { key: P,          mods: Control|Shift,    chars: "\x1b[80;6u"                           } # https://www.reddit.com/r/neovim/comments/mbj8m5/how_to_setup_ctrlshiftkey_mappings_in_neovim_and/
   - { key: Q,          mods: Alt,              chars: "\x1bq"                                }
   - { key: R,          mods: Alt,              chars: "\x1br"                                }
   - { key: S,          mods: Alt,              chars: "\x1bs"                                }

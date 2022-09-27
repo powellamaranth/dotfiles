@@ -45,8 +45,9 @@
       require("nvim-tree").setup({
         open_on_setup = true,
         open_on_setup_file = true,
-        update_focused_file = { enable = true },
       })
+
+      vim.keymap.set("n", "<C-Bslash>", ":lua require'nvim-tree'.toggle(false,true)<cr>", { noremap = true, silent = true })
     end},
     { "nvim-lualine/lualine.nvim", config = function()
       require("lualine").setup({
@@ -74,6 +75,7 @@
       }
     end},
     { "nvim-telescope/telescope.nvim",
+      branch = '0.1.x',
       requires = {
         { "nvim-lua/plenary.nvim" },
         { "rcarriga/nvim-notify" },
@@ -81,6 +83,24 @@
       }, config = function()
         require("telescope").load_extension("fzf")
         require("telescope").load_extension("notify")
+        require("telescope").setup({
+          defaults = {
+            preview = {
+              hide_on_startup = true,
+            }
+          },
+          pickers = {
+            find_files = {
+              theme = "dropdown",
+            },
+            live_grep = {
+              theme = "dropdown",
+            },
+          }
+        })
+
+        vim.keymap.set("n", "<C-S-p>", "<cmd>Telescope live_grep<cr>", { noremap = true, silent = true })
+        vim.keymap.set("n", "<C-p>", "<cmd>Telescope find_files<cr>", { noremap = true, silent = true })
     end},
   }
 -- [[]]
@@ -142,10 +162,7 @@
 -- [[]]
 
 -- [[Mappings]]
-  local keymap = vim.keymap.set
-  local opts = { noremap = true, silent = true }
-
-  keymap("", "<space>", "<nop>", opts)
+  vim.keymap.set("", "<SPACE>", "<NOP>", { noremap = true, silent = true })
 -- [[]]
 
 -- [[Packer startup]]
