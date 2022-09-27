@@ -19,11 +19,16 @@
     { "max397574/better-escape.nvim" },
     { "ggandor/lightspeed.nvim", requires = { { "tpope/vim-repeat" } } },
     { "folke/tokyonight.nvim", config = function()
-      vim.g.tokyonight_sidebars = { "NvimTree" }
-      vim.cmd([[
-        colorscheme tokyonight-night
-        hi CursorLine gui=underline cterm=underline ctermbg=None guibg=None
-      ]])
+      require("tokyonight").setup({
+        style = "night",
+        transparent = true,
+        dim_inactive = true,
+        styles = {
+          sidebars = "transparent",
+        },
+      })
+
+      vim.cmd[[colorscheme tokyonight]]
     end},
     { "akinsho/bufferline.nvim", tag = "v2.*", config = function()
       require("bufferline").setup({
@@ -38,7 +43,9 @@
     end},
     { "kyazdani42/nvim-tree.lua", requires = { { "kyazdani42/nvim-web-devicons" }, }, config = function()
       require("nvim-tree").setup({
-        view = { side = "left", width = 25 },
+        open_on_setup = true,
+        open_on_setup_file = true,
+        update_focused_file = { enable = true },
       })
     end},
     { "nvim-lualine/lualine.nvim", config = function()
@@ -55,9 +62,16 @@
         incremental_selection = { enable = true },
       })
     end},
-    { "hrsh7th/nvim-cmp" config = function()
-    end},
     { "neoclide/coc.nvim", branch = "release", config = function()
+      vim.g.coc_global_extensions = {
+        "coc-solargraph",
+        "coc-go",
+        "coc-java",
+        "coc-pyright",
+        "coc-rls",
+        "coc-tsserver",
+        "coc-java",
+      }
     end},
     { "nvim-telescope/telescope.nvim",
       requires = {
