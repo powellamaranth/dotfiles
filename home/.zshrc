@@ -2,7 +2,7 @@
 export EDITOR=nvim
 export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
-export PATH="/usr/local/sbin:$HOME/bin:$PATH"
+export PATH="/usr/local/sbin:$HOME/.local/bin:$HOME/bin:$PATH"
 export ZPLUG_PROTOCOL=ssh
 export ZPLUG_HOME=/usr/local/opt/zplug
 export PYTHON_CONFIGURE_OPTS="--enable-framework"
@@ -47,6 +47,7 @@ zplug 'plugins/gcloud', from:oh-my-zsh
 zplug 'plugins/git', from:oh-my-zsh
 zplug 'plugins/kubectl', from:oh-my-zsh
 zplug 'plugins/tmux', from:oh-my-zsh
+zplug 'ptavares/zsh-sdkman'
 zplug 'zsh-users/zsh-autosuggestions'
 zplug 'zsh-users/zsh-syntax-highlighting', defer:2
 
@@ -71,3 +72,6 @@ fpath=(${ASDF_DIR}/completions $fpath)
 autoload -Uz compinit && compinit
 
 [ -d ~/.asdf/plugins/java ] && source ~/.asdf/plugins/java/set-java-home.zsh
+
+export SDKMAN_DIR="/Users/danielcarrazzoni/.sdkman"
+[[ -s "/Users/danielcarrazzoni/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/danielcarrazzoni/.sdkman/bin/sdkman-init.sh"
