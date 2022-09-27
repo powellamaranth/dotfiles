@@ -3,6 +3,8 @@
 pushd ~
 curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh
 brew install stow
+
+rm -fr ~/.dotfiles
 git clone git@github.com:danielgatis/dotfiles.git .dotfiles
 
 pushd .dotfiles
