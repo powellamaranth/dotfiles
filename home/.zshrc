@@ -2,7 +2,7 @@
 export EDITOR=nvim
 export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
-export PATH="/usr/local/sbin:$HOME/.local/bin:$HOME/bin:$PATH"
+export PATH="/usr/local/sbin:$HOME/.local/bin:$PATH"
 export ZPLUG_PROTOCOL=ssh
 export ZPLUG_HOME=/usr/local/opt/zplug
 export PYTHON_CONFIGURE_OPTS="--enable-framework"
