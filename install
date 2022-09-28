@@ -5,7 +5,7 @@ pushd ~
 brew install stow
 
 rm -fr ~/.dotfiles
-git clone git@github.com:danielgatis/dotfiles.git .dotfiles
+git clone https://github.com/danielgatis/dotfiles.git .dotfiles
 
 pushd .dotfiles
 stow -v -R -t ~ home
