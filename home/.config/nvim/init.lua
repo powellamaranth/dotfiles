@@ -13,11 +13,20 @@
     { "numToStr/Comment.nvim" },
     { "gpanders/editorconfig.nvim" },
     { "sitiom/nvim-numbertoggle" },
-    { "sunaku/tmux-navigate" },
     { "tpope/vim-surround" },
     { "windwp/nvim-autopairs" },
     { "max397574/better-escape.nvim" },
     { "ggandor/lightspeed.nvim", requires = { { "tpope/vim-repeat" } } },
+    { "christoomey/vim-tmux-navigator", config = function()
+        vim.cmd[[
+          let g:tmux_navigator_no_mappings = 1
+          nnoremap <silent> <A-Left> :TmuxNavigateLeft<cr>
+          nnoremap <silent> <A-Down> :TmuxNavigateDown<cr>
+          nnoremap <silent> <A-Up> :TmuxNavigateUp<cr>
+          nnoremap <silent> <A-Right> :TmuxNavigateRight<cr>
+          nnoremap <silent> <A-Bslash> :TmuxNavigatePrevious<cr>
+        ]]
+    end},
     { "folke/tokyonight.nvim", config = function()
       require("tokyonight").setup({
         style = "night",
