@@ -3,10 +3,7 @@ export EDITOR=nvim
 export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 export PATH="/usr/local/sbin:$HOME/.local/bin:$PATH"
-export ZPLUG_PROTOCOL=ssh
-export ZPLUG_HOME=/usr/local/opt/zplug
 export PYTHON_CONFIGURE_OPTS="--enable-framework"
-export ZSH_TMUX_UNICODE=true
 
 # History
 HISTFILE="$HOME/.zsh_history"
@@ -36,18 +33,15 @@ setopt inc_append_history
 setopt share_history
 bindkey -e
 
-# Plugins
+# Aliases
+alias vim="nvim"
+
+# Zplug
+export ZPLUG_HOME=/opt/homebrew/opt/zplug
+export ZPLUG_PROTOCOL=https
 source $ZPLUG_HOME/init.zsh
 
-zplug 'agkozak/zsh-z'
-zplug 'djui/alias-tips'
-zplug 'plugins/direnv', from:oh-my-zsh
-zplug 'plugins/fzf', from:oh-my-zsh
-zplug 'plugins/gcloud', from:oh-my-zsh
-zplug 'plugins/git', from:oh-my-zsh
-zplug 'plugins/kubectl', from:oh-my-zsh
-zplug 'plugins/tmux', from:oh-my-zsh
-zplug 'ptavares/zsh-sdkman'
+zplug 'zplug/zplug', hook-build:'zplug --self-manage'
 zplug 'zsh-users/zsh-autosuggestions'
 zplug 'zsh-users/zsh-syntax-highlighting', defer:2
 
@@ -57,21 +51,11 @@ fi
 
 zplug load
 
-# Aliases
-alias vim="nvim"
+# ASDF
+source /opt/homebrew/opt/asdf/libexec/asdf.sh
 
-# Misc
+# Starship
 eval "$(starship init zsh)"
 
-# ASDF
-source $HOME/.asdf/asdf.sh
-
-# append completions to fpath
-fpath=(${ASDF_DIR}/completions $fpath)
-# initialise completions with ZSH's compinit
-autoload -Uz compinit && compinit
-
-[ -d ~/.asdf/plugins/java ] && source ~/.asdf/plugins/java/set-java-home.zsh
-
-export SDKMAN_DIR="/Users/danielcarrazzoni/.sdkman"
-[[ -s "/Users/danielcarrazzoni/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/danielcarrazzoni/.sdkman/bin/sdkman-init.sh"
+# Zoxied
+eval "$(zoxide init zsh)"

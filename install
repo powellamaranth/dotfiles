@@ -13,4 +13,10 @@ popd
 
 brew bundle --global --force --no-lock || true
 nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
+
+tmux start-server
+tmux new-session -d
+sh ~/.tmux/plugins/tpm/scripts/install_plugins.sh
+tmux kill-server
+
 popd
