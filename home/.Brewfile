@@ -33,6 +33,7 @@ cask_args require_sha: true, force: true
 cask "alacritty"
 cask "authy"
 cask "cakebrew"
+cask "dbeaver-community"
 cask "docker"
 cask "font-fira-code-nerd-font"
 cask "google-chrome"
