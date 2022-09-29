@@ -1,2 +1,7 @@
-home/.config/nvim/plugin
-home/.local/share/nvim
+home/.config/**/*
+home/.local/**/*
+
+!home/.config/nvim
+!home/.config/.starship.toml
+
+!home/.local/bin
