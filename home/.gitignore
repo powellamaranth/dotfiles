@@ -6,6 +6,8 @@
 .env.qa
 .envrc
 .tool-versions
+.ruby-gemset
+.ruby-version
 .vscode
 ctags
 tags
