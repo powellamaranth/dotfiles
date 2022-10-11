@@ -2,6 +2,6 @@ home/.config/**/*
 home/.local/**/*
 
 !home/.config/nvim
-!home/.config/.starship.toml
+!home/.config/starship.toml
 
 !home/.local/bin

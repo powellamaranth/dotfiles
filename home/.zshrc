@@ -51,6 +51,13 @@ fi
 
 zplug load
 
+# compile flags
+export LDFLAGS="-L/opt/homebrew/opt/libffi/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/libffi/include"
+
+# pkg-config
+export PKG_CONFIG_PATH="/opt/homebrew/opt/libffi/lib/pkgconfig"
+
 # ASDF
 source /opt/homebrew/opt/asdf/libexec/asdf.sh
 
