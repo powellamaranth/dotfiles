@@ -52,8 +52,12 @@ fi
 zplug load
 
 # compile flags
+export optflags="-Wno-error=implicit-function-declaration"
+
 export LDFLAGS="-L/opt/homebrew/opt/libffi/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/libffi/include"
+export LDFLAGS="-L/opt/homebrew/opt/libpq/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/libpq/include"
 
 # pkg-config
 export PKG_CONFIG_PATH="/opt/homebrew/opt/libffi/lib/pkgconfig"

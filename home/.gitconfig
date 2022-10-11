@@ -7,3 +7,6 @@
 	fsmonitor = true
 [interactive]
 	diffFilter = diff-so-fancy --patch
+[alias]
+  hide = update-index --assume-unchanged
+  unhide = update-index --no-assume-unchanged
