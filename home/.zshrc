@@ -42,9 +42,10 @@ export ZPLUG_PROTOCOL=https
 source $ZPLUG_HOME/init.zsh
 
 zplug 'zplug/zplug', hook-build:'zplug --self-manage'
+zplug "zsh-users/zsh-completions"
 zplug 'zsh-users/zsh-autosuggestions'
-zplug 'marlonrichert/zsh-autocomplete'
-zplug 'zsh-users/zsh-syntax-highlighting', defer:2
+zplug 'zsh-users/zsh-syntax-highlighting'
+zplug 'rupa/z', use:z.sh
 
 if ! zplug check; then
   zplug install
@@ -60,9 +61,6 @@ source /opt/homebrew/opt/asdf/libexec/asdf.sh
 
 # Starship
 eval "$(starship init zsh)"
-
-# Zoxied
-eval "$(zoxide init zsh)"
 
 # Sdkman
 export SDKMAN_DIR="$HOME/.sdkman"

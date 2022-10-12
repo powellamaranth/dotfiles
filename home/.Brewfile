@@ -25,7 +25,6 @@ brew "stow"
 brew "tmux"
 brew "tree"
 brew "watch"
-brew "zoxide"
 brew "zplug"
 brew "zsh"
 
